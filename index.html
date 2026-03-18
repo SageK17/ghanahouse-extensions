@@ -1,1 +1,391 @@
-<html><body><h1>Ghanahouse Extensions</h1><p>Loading...</p></body></html>
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ghanahouse Extensions - Premium Hairextensions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --gold: #FFD700;
+  --gold-dark: #C9A800;
+  --black: #f8f5f0;
+  --black-soft: #ffffff;
+  --green: #006B3F;
+  --red: #CF0921;
+  --white: #ffffff;
+  --text-dark: #1a1205;
+  --text-medium: #4a3f2a;
+  --text-light: #7a6a50;
+  --border: rgba(255,215,0,0.2);
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body: 'DM Sans', sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-body);background:var(--black);color:var(--text-dark);overflow-x:hidden}
+.navbar{position:fixed;top:0;left:0;right:0;z-index:999;display:flex;align-items:center;justify-content:space-between;padding:1rem 3rem;background:rgba(255,252,245,0.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);transition:all 0.3s}
+.nav-logo{display:flex;align-items:center;gap:0.6rem;text-decoration:none}
+.nav-logo img{height:44px;width:auto;object-fit:contain;filter:brightness(0) invert(1)}
+.nav-logo-text{font-family:var(--font-display);font-size:1.2rem;color:#8a6a00;letter-spacing:1px}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{color:rgba(30,20,5,0.75);text-decoration:none;font-size:0.9rem;font-weight:500;letter-spacing:0.5px;transition:color 0.2s}
+.nav-links a:hover{color:var(--gold-dark)}
+.nav-admin-btn{background:transparent;border:1px solid var(--gold);color:var(--gold);padding:0.45rem 1.2rem;border-radius:2px;font-size:0.85rem;cursor:pointer;font-family:var(--font-body);transition:all 0.2s;letter-spacing:0.5px}
+.nav-admin-btn:hover{background:var(--gold);color:var(--black)}
+.hero{min-height:100vh;position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden;background:var(--black)}
+.hero-content{position:relative;z-index:2;text-align:center;padding:2rem;max-width:900px;animation:heroReveal 1.2s ease forwards}
+@keyframes heroReveal{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:translateY(0)}}
+.hero-badge{display:inline-block;background:rgba(255,215,0,0.1);border:1px solid rgba(255,215,0,0.3);color:var(--gold);font-size:0.75rem;letter-spacing:3px;text-transform:uppercase;padding:0.5rem 1.5rem;border-radius:2px;margin-bottom:2rem;animation:fadeUp 1s ease 0.2s both}
+.hero-title{font-family:var(--font-display);font-size:clamp(3rem,8vw,7rem);line-height:1;font-weight:900;margin-bottom:1rem;animation:fadeUp 1s ease 0.4s both}
+.hero-title .line1{display:block;color:var(--text-dark)}
+.hero-title .line2{display:block;background:linear-gradient(135deg,var(--gold),#FF9D00,var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-sub{font-size:clamp(1rem,2vw,1.3rem);color:var(--text-medium);font-weight:400;letter-spacing:0.5px;margin-bottom:3rem;animation:fadeUp 1s ease 0.6s both}
+.hero-cta{display:inline-flex;gap:1rem;flex-wrap:wrap;justify-content:center;animation:fadeUp 1s ease 0.8s both}
+.btn-primary{background:var(--gold);color:var(--black);padding:1rem 2.5rem;border:none;border-radius:2px;font-family:var(--font-body);font-weight:600;font-size:0.95rem;cursor:pointer;text-decoration:none;transition:all 0.25s;letter-spacing:0.5px}
+.btn-primary:hover{background:var(--white);transform:translateY(-2px);box-shadow:0 8px 30px rgba(255,215,0,0.3)}
+.btn-outline{background:transparent;color:var(--text-dark);padding:1rem 2.5rem;border:1px solid rgba(30,20,5,0.25);border-radius:2px;font-family:var(--font-body);font-weight:500;font-size:0.95rem;cursor:pointer;text-decoration:none;transition:all 0.25s}
+.btn-outline:hover{border-color:#8a6a00;color:#8a6a00}
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+section{padding:6rem 2rem}
+.section-label{display:inline-block;color:var(--gold);font-size:0.75rem;letter-spacing:4px;text-transform:uppercase;margin-bottom:1rem}
+.section-title{font-family:var(--font-display);font-size:clamp(2rem,4vw,3.5rem);font-weight:700;line-height:1.1;margin-bottom:1.5rem}
+.section-title span{color:#8a6a00}
+.container{max-width:1200px;margin:0 auto}
+.about{background:#fdf9f3}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
+.about-text p{color:var(--text-medium);line-height:1.8;margin-bottom:1.5rem;font-size:1.05rem}
+.about-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:2.5rem}
+.stat-num{font-family:var(--font-display);font-size:2.5rem;font-weight:900;color:var(--gold);display:block}
+.stat-label{font-size:0.8rem;color:var(--text-light);letter-spacing:1px;text-transform:uppercase}
+.services{background:#f8f4ed}
+.services-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.5rem;margin-top:3rem}
+.service-card{background:#ffffff;border:1px solid rgba(180,150,50,0.2);padding:2.5rem 2rem;position:relative;overflow:hidden;transition:all 0.3s;box-shadow:0 2px 12px rgba(0,0,0,0.06)}
+.service-card::before{content:'';position:absolute;top:0;left:0;width:3px;height:0;background:var(--gold);transition:height 0.3s}
+.service-card:hover{transform:translateY(-4px);border-color:rgba(255,215,0,0.4);box-shadow:0 20px 60px rgba(0,0,0,0.1)}
+.service-card:hover::before{height:100%}
+.service-icon{width:50px;height:50px;background:rgba(255,215,0,0.1);border-radius:2px;display:flex;align-items:center;justify-content:center;margin-bottom:1.5rem;font-size:1.4rem}
+.service-name{font-family:var(--font-display);font-size:1.3rem;font-weight:700;margin-bottom:0.75rem;color:var(--text-dark)}
+.service-desc{color:var(--text-light);font-size:0.9rem;line-height:1.7}
+.service-tag{display:inline-block;margin-top:1.2rem;background:rgba(0,107,63,0.15);border:1px solid rgba(0,107,63,0.3);color:#4dffaa;font-size:0.72rem;padding:0.3rem 0.8rem;border-radius:2px;letter-spacing:1px;text-transform:uppercase}
+.social-section{background:#f8f4ed;text-align:center}
+.social-intro{color:var(--text-medium);font-size:1.1rem;margin-bottom:3rem;max-width:500px;margin-left:auto;margin-right:auto;line-height:1.7}
+.social-links{display:flex;justify-content:center;flex-wrap:wrap;gap:1.5rem}
+.social-link{display:flex;align-items:center;gap:0.75rem;padding:1.2rem 2rem;border:1px solid rgba(180,150,50,0.25);text-decoration:none;color:var(--text-dark);background:#ffffff;transition:all 0.3s;font-weight:500;font-size:0.95rem;min-width:200px;justify-content:center}
+.social-link:hover{transform:translateY(-3px)}
+.social-link.instagram:hover{border-color:#E1306C;background:rgba(225,48,108,0.08);color:#E1306C}
+.social-link.facebook:hover{border-color:#1877F2;background:rgba(24,119,242,0.08);color:#1877F2}
+.social-link.whatsapp:hover{border-color:#25D366;background:rgba(37,211,102,0.08);color:#25D366}
+.social-link.tiktok:hover{border-color:#ff0050;background:rgba(255,0,80,0.08);color:#ff0050}
+.social-icon{width:36px;height:36px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.contact{background:#ffffff}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;margin-top:3rem}
+.contact-info h3{font-family:var(--font-display);font-size:1.5rem;margin-bottom:2rem}
+.contact-item{display:flex;gap:1rem;margin-bottom:1.5rem;align-items:flex-start}
+.contact-icon{width:40px;height:40px;background:rgba(255,215,0,0.15);border:1px solid rgba(255,215,0,0.3);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#8a6a00}
+.contact-label{font-size:0.75rem;color:var(--text-light);letter-spacing:2px;text-transform:uppercase;margin-bottom:0.2rem}
+.contact-value{color:var(--text-dark)}
+.contact-form{background:#fdf9f3;border:1px solid rgba(180,150,50,0.2);padding:2.5rem}
+.contact-form h3{font-family:var(--font-display);font-size:1.4rem;margin-bottom:2rem}
+.form-group{margin-bottom:1.2rem}
+.form-group label{display:block;font-size:0.8rem;letter-spacing:1px;text-transform:uppercase;color:var(--text-medium);margin-bottom:0.5rem}
+.form-group input,.form-group textarea{width:100%;background:#ffffff;border:1px solid rgba(180,150,50,0.25);color:var(--text-dark);padding:0.85rem 1rem;font-family:var(--font-body);font-size:0.95rem;outline:none;transition:border-color 0.2s;border-radius:0;resize:vertical}
+.form-group input:focus,.form-group textarea:focus{border-color:var(--gold)}
+footer{background:#1a1205;border-top:1px solid rgba(255,215,0,0.2);padding:3rem 2rem;text-align:center}
+.footer-logo{font-family:var(--font-display);font-size:1.8rem;font-weight:900;color:var(--gold);margin-bottom:1rem}
+.footer-tagline{color:rgba(255,240,180,0.6);font-size:0.85rem;margin-bottom:2rem}
+.footer-copy{color:rgba(255,255,255,0.3);font-size:0.8rem}
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.95);z-index:2000;align-items:center;justify-content:center;backdrop-filter:blur(10px)}
+.modal-overlay.active{display:flex}
+.modal-box{background:var(--black-soft);border:1px solid var(--border);padding:3rem;width:100%;max-width:420px;position:relative;animation:modalIn 0.3s ease}
+@keyframes modalIn{from{opacity:0;transform:scale(0.96) translateY(20px)}to{opacity:1;transform:scale(1) translateY(0)}}
+.modal-close{position:absolute;top:1rem;right:1rem;background:none;border:none;color:rgba(255,255,255,0.4);font-size:1.5rem;cursor:pointer;padding:0.25rem;transition:color 0.2s}
+.modal-close:hover{color:var(--gold)}
+.modal-title{font-family:var(--font-display);font-size:1.8rem;color:var(--gold);margin-bottom:0.5rem}
+.modal-sub{color:rgba(255,255,255,0.5);font-size:0.85rem;margin-bottom:2rem}
+.modal-input{width:100%;background:rgba(255,255,255,0.04);border:1px solid var(--border);color:var(--white);padding:1rem;font-family:var(--font-body);font-size:1rem;outline:none;transition:border-color 0.2s;margin-bottom:1rem}
+.modal-input:focus{border-color:var(--gold)}
+.modal-btn{width:100%;background:var(--gold);color:var(--black);border:none;padding:1rem;font-family:var(--font-body);font-weight:700;font-size:1rem;cursor:pointer;transition:all 0.2s;letter-spacing:0.5px}
+.modal-btn:hover{background:var(--white)}
+.modal-error{color:var(--red);font-size:0.85rem;margin-top:0.75rem;display:none}
+#admin-panel{display:none;position:fixed;inset:0;background:#0a0a0a;z-index:3000;overflow-y:auto;font-family:var(--font-body)}
+.admin-header{background:var(--black-soft);border-bottom:1px solid var(--border);padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:10}
+.admin-title{font-family:var(--font-display);font-size:1.3rem;color:var(--gold)}
+.admin-logout{background:rgba(207,9,33,0.15);border:1px solid rgba(207,9,33,0.4);color:#ff6b7a;padding:0.5rem 1.2rem;border-radius:2px;cursor:pointer;font-family:var(--font-body);font-size:0.85rem;transition:all 0.2s}
+.admin-body{padding:2rem;max-width:1400px;margin:0 auto}
+.admin-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-bottom:2rem}
+.admin-stat{background:var(--black-soft);border:1px solid var(--border);padding:1.5rem;text-align:center}
+.admin-stat .num{font-family:var(--font-display);font-size:2rem;font-weight:900;color:var(--gold);display:block}
+.admin-stat .lbl{font-size:0.75rem;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:1px;margin-top:0.25rem}
+.admin-form-card{background:var(--black-soft);border:1px solid var(--border);padding:2rem;margin-bottom:2rem}
+.admin-form-card h2{font-family:var(--font-display);font-size:1.3rem;color:var(--gold);margin-bottom:1.5rem}
+.admin-form-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1rem}
+.admin-field label{display:block;font-size:0.75rem;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:1px;margin-bottom:0.4rem}
+.admin-field input,.admin-field textarea,.admin-field select{width:100%;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);color:var(--white);padding:0.7rem 0.9rem;font-family:var(--font-body);font-size:0.9rem;outline:none;transition:border-color 0.2s;border-radius:0}
+.admin-field input:focus,.admin-field textarea:focus,.admin-field select:focus{border-color:var(--gold)}
+.admin-field select option{background:#1a1a1a}
+.admin-form-actions{margin-top:1.5rem;display:flex;gap:1rem;align-items:center}
+.btn-admin-add{background:var(--gold);color:var(--black);border:none;padding:0.85rem 2rem;font-family:var(--font-body);font-weight:700;font-size:0.9rem;cursor:pointer;transition:all 0.2s}
+.btn-admin-add:hover{background:var(--white)}
+.btn-admin-clear{background:transparent;color:rgba(255,255,255,0.5);border:1px solid rgba(255,255,255,0.15);padding:0.85rem 1.5rem;font-family:var(--font-body);font-size:0.9rem;cursor:pointer;transition:all 0.2s}
+.admin-table-card{background:var(--black-soft);border:1px solid var(--border);padding:2rem}
+.admin-table-header{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;margin-bottom:1.5rem}
+.admin-table-header h2{font-family:var(--font-display);font-size:1.3rem;color:var(--gold)}
+.table-controls{display:flex;gap:0.75rem;flex-wrap:wrap;align-items:center}
+.table-search{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);color:var(--white);padding:0.6rem 1rem;font-family:var(--font-body);font-size:0.85rem;outline:none;width:220px;transition:border-color 0.2s}
+.table-search:focus{border-color:var(--gold)}
+.table-search::placeholder{color:rgba(255,255,255,0.25)}
+.filter-btn{padding:0.6rem 1.2rem;border:1px solid rgba(255,255,255,0.1);background:transparent;color:rgba(255,255,255,0.6);cursor:pointer;font-family:var(--font-body);font-size:0.82rem;transition:all 0.2s}
+.filter-btn.active-all{border-color:var(--gold);color:var(--gold);background:rgba(255,215,0,0.07)}
+.filter-btn.active-paid{border-color:var(--green);color:#4dffaa;background:rgba(0,107,63,0.1)}
+.filter-btn.active-unpaid{border-color:var(--red);color:#ff6b7a;background:rgba(207,9,33,0.1)}
+.btn-export{background:var(--green);color:var(--white);border:none;padding:0.6rem 1.2rem;cursor:pointer;font-family:var(--font-body);font-size:0.82rem;transition:all 0.2s}
+.btn-export:hover{background:#008A50}
+.table-wrap{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:0.87rem}
+th{background:rgba(255,215,0,0.06);color:rgba(255,255,255,0.6);font-weight:500;text-transform:uppercase;letter-spacing:1px;font-size:0.72rem;padding:0.9rem 1rem;text-align:left;border-bottom:1px solid var(--border);white-space:nowrap}
+td{padding:1rem;border-bottom:1px solid rgba(255,255,255,0.05);color:rgba(255,255,255,0.8);vertical-align:middle}
+tr:hover td{background:rgba(255,255,255,0.02)}
+.paid-badge{display:inline-flex;align-items:center;gap:0.35rem;padding:0.3rem 0.75rem;border-radius:2px;font-size:0.75rem;font-weight:600;letter-spacing:0.5px;cursor:pointer;transition:all 0.2s;border:none;font-family:var(--font-body)}
+.paid-badge.yes{background:rgba(0,107,63,0.2);border:1px solid rgba(0,107,63,0.4);color:#4dffaa}
+.paid-badge.no{background:rgba(207,9,33,0.15);border:1px solid rgba(207,9,33,0.4);color:#ff6b7a}
+.btn-delete{background:rgba(207,9,33,0.1);border:1px solid rgba(207,9,33,0.25);color:#ff6b7a;padding:0.35rem 0.75rem;cursor:pointer;font-family:var(--font-body);font-size:0.78rem;transition:all 0.2s;border-radius:2px}
+.btn-delete:hover{background:rgba(207,9,33,0.3)}
+.table-footer{display:flex;justify-content:space-between;align-items:center;margin-top:1.5rem;padding-top:1.5rem;border-top:1px solid var(--border);flex-wrap:wrap;gap:1rem}
+.total-display{font-family:var(--font-display);font-size:1.4rem}
+.total-display .total-label{color:rgba(255,255,255,0.5);font-size:0.8rem;letter-spacing:1px;text-transform:uppercase;display:block;margin-bottom:0.2rem;font-family:var(--font-body)}
+.total-display .total-amount{color:var(--gold)}
+.empty-state{text-align:center;padding:4rem 2rem;color:rgba(255,255,255,0.25)}
+.toast{position:fixed;bottom:2rem;right:2rem;background:var(--green);color:var(--white);padding:1rem 1.5rem;font-size:0.9rem;z-index:9999;opacity:0;transform:translateY(20px);transition:all 0.3s;pointer-events:none}
+.toast.show{opacity:1;transform:translateY(0)}
+.toast.error{background:var(--red)}
+@media(max-width:900px){.navbar{padding:1rem 1.5rem}.nav-links{display:none}.about-grid{grid-template-columns:1fr;gap:2rem}.contact-grid{grid-template-columns:1fr}.admin-stats{grid-template-columns:repeat(2,1fr)}section{padding:4rem 1.5rem}}
+@media(max-width:600px){.social-link{min-width:unset;width:100%;max-width:300px}.admin-body{padding:1rem}.admin-stats{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<nav class="navbar">
+  <a href="#" class="nav-logo">
+    <img src="https://ghanahouse.nl/wp-content/uploads/2022/08/cropped-ghouse.png" alt="Ghanahouse Logo">
+    <span class="nav-logo-text">Extensions</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">Over ons</a></li>
+    <li><a href="#services">Diensten</a></li>
+    <li><a href="#social">Socials</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <button class="nav-admin-btn" onclick="openLogin()">Organisator</button>
+</nav>
+
+<section class="hero" id="home">
+  <div class="hero-content">
+    <div class="hero-badge">✨ Premium Hairextensions Salon ✨</div>
+    <div style="margin-bottom:1.5rem;animation:fadeUp 1s ease 0.3s both">
+      <img src="https://ghanahouse.nl/wp-content/uploads/2022/08/cropped-ghouse.png" alt="Ghanahouse Logo" style="height:90px;width:auto;object-fit:contain;filter:drop-shadow(0 0 20px rgba(255,215,0,0.3))">
+    </div>
+    <h1 class="hero-title">
+      <span class="line1">Ghanahouse</span>
+      <span class="line2">Extensions</span>
+    </h1>
+    <p class="hero-sub">Jouw schoonheid, onze passie — authentieke hairextensions van topkwaliteit</p>
+    <div class="hero-cta">
+      <a href="#services" class="btn-primary">Bekijk diensten</a>
+      <a href="#contact" class="btn-outline">Neem contact op</a>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div style="background:linear-gradient(135deg,#2a1a00,#1a0d00);border:1px solid var(--border);height:400px;display:flex;align-items:center;justify-content:center;border-radius:2px">
+        <svg width="80" height="80" viewBox="0 0 80 80" fill="none"><circle cx="40" cy="25" r="15" stroke="#FFD700" stroke-width="1.5"/><path d="M20 70 Q40 45 60 70" stroke="#FFD700" stroke-width="1.5" fill="none"/><path d="M10 70 Q40 35 70 70" stroke="rgba(255,215,0,0.4)" stroke-width="1" fill="none"/></svg>
+      </div>
+      <div class="about-text">
+        <span class="section-label">Over ons</span>
+        <h2 class="section-title">De kunst van <span>prachtig haar</span></h2>
+        <p>Ghanahouse Extensions is uw specialist in premium hairextensions, opgericht vanuit een passie voor schoonheid en kwaliteit. Wij brengen de beste haarproducten van over de hele wereld naar u toe.</p>
+        <p>Van Brazilian tot Peruvian en Indian hair — elk product is zorgvuldig geselecteerd op kwaliteit, duurzaamheid en natuurlijke uitstraling.</p>
+        <p>Onze medewerkers staan voor u klaar met advies op maat, zodat u altijd de perfecte match vindt voor uw haartype en stijl.</p>
+        <div class="about-stats">
+          <div style="text-align:center"><span class="stat-num">5+</span><span class="stat-label">Jaar ervaring</span></div>
+          <div style="text-align:center"><span class="stat-num">20+</span><span class="stat-label">Producten</span></div>
+          <div style="text-align:center"><span class="stat-num">⭐ 5</span><span class="stat-label">Beoordeling</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="services" id="services">
+  <div class="container">
+    <span class="section-label">Ons aanbod</span>
+    <h2 class="section-title">Premium <span>Hairextensions</span></h2>
+    <div class="services-grid">
+      <div class="service-card"><div class="service-icon">🌺</div><div class="service-name">Brazilian Hair</div><div class="service-desc">Dik, glanzend en veerkrachtig haar uit Brazilië. Perfect voor een volle, luxueuze look die lang meegaat.</div><span class="service-tag">Bestseller</span></div>
+      <div class="service-card"><div class="service-icon">✨</div><div class="service-name">Peruvian Hair</div><div class="service-desc">Zijdezacht en lichtgewicht met een natuurlijke glans. Ideaal voor dames die een fijne, soepele textuur zoeken.</div><span class="service-tag">Premium</span></div>
+      <div class="service-card"><div class="service-icon">🪷</div><div class="service-name">Indian Hair</div><div class="service-desc">Bekend om zijn unieke textuur die naadloos mengt met Afrikaans haar. Duurzaam, veelzijdig en gemakkelijk te stylen.</div><span class="service-tag">Populair</span></div>
+      <div class="service-card"><div class="service-icon">🌿</div><div class="service-name">Malaysian Hair</div><div class="service-desc">Zacht, glanzend en lichtgewicht. Malaysian hair heeft een mooie natuurlijke body wave en is bestand tegen vocht.</div><span class="service-tag">Nieuw</span></div>
+      <div class="service-card"><div class="service-icon">💎</div><div class="service-name">Raw Virgin Hair</div><div class="service-desc">100% onbehandeld, maagdelijk haar — de absolute top van de kwaliteitsladder. Kan geklleurd en gestyled worden.</div><span class="service-tag">Exclusief</span></div>
+      <div class="service-card"><div class="service-icon">🎨</div><div class="service-name">Gekleurde Extensions</div><div class="service-desc">Van natuurlijk zwart tot ombre en highlights — wij hebben een uitgebreid kleurenpalet voor elke gewenste look.</div><span class="service-tag">Trendy</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="social-section" id="social">
+  <div class="container">
+    <span class="section-label">Volg ons</span>
+    <h2 class="section-title">Blijf op de <span>hoogte</span></h2>
+    <p class="social-intro">Volg ons op social media voor de nieuwste producten, looks, aanbiedingen en inspiratie van Ghanahouse Extensions.</p>
+    <div class="social-links">
+      <a href="https://instagram.com/ghanahouse_extensions" target="_blank" class="social-link instagram">
+        <div class="social-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></div>
+        Instagram
+      </a>
+      <a href="https://facebook.com/ghanahouse.extensions" target="_blank" class="social-link facebook">
+        <div class="social-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></div>
+        Facebook
+      </a>
+      <a href="https://wa.me/31600000000" target="_blank" class="social-link whatsapp">
+        <div class="social-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></div>
+        WhatsApp
+      </a>
+      <a href="https://tiktok.com/@ghanahouse.extensions" target="_blank" class="social-link tiktok">
+        <div class="social-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg></div>
+        TikTok
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="container">
+    <span class="section-label">Contacteer ons</span>
+    <h2 class="section-title">Neem <span>contact op</span></h2>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <h3>Wij helpen u graag</h3>
+        <div class="contact-item"><div class="contact-icon">📍</div><div><div class="contact-label">Adres</div><div class="contact-value">Straatnam 123<br>1234 AB Stad, Nederland</div></div></div>
+        <div class="contact-item"><div class="contact-icon">📞</div><div><div class="contact-label">Telefoon</div><div class="contact-value">+31 6 00 000 000</div></div></div>
+        <div class="contact-item"><div class="contact-icon">✉️</div><div><div class="contact-label">E-mail</div><div class="contact-value">info@ghanahouse.nl</div></div></div>
+        <div class="contact-item"><div class="contact-icon">🕐</div><div><div class="contact-label">Openingstijden</div><div class="contact-value">Ma – Za: 9:00 – 20:00<br>Zo: 11:00 – 18:00</div></div></div>
+      </div>
+      <div class="contact-form">
+        <h3>Stuur een bericht</h3>
+        <div class="form-group"><label>Uw naam</label><input type="text" placeholder="Voornaam Achternaam"></div>
+        <div class="form-group"><label>E-mailadres</label><input type="email" placeholder="uwmail@voorbeeld.nl"></div>
+        <div class="form-group"><label>Bericht</label><textarea rows="5" placeholder="Hoe kunnen wij u helpen?"></textarea></div>
+        <button class="btn-primary" onclick="showToast('Bericht verzonden! Wij nemen spoedig contact op.',false)" style="width:100%;border-radius:0">Verstuur bericht</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div style="margin-bottom:1rem"><img src="https://ghanahouse.nl/wp-content/uploads/2022/08/cropped-ghouse.png" alt="Logo" style="height:60px;width:auto;object-fit:contain;filter:brightness(0) invert(1) sepia(1) saturate(3) hue-rotate(5deg);opacity:0.85"></div>
+  <div class="footer-logo">Ghanahouse Extensions</div>
+  <div class="footer-tagline">Premium Hairextensions — Kwaliteit die spreekt voor zichzelf</div>
+  <div class="footer-copy">&copy; 2025 Ghanahouse Extensions. Alle rechten voorbehouden.</div>
+</footer>
+
+<div class="modal-overlay" id="loginModal">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeLogin()">✕</button>
+    <div class="modal-title">Organisator</div>
+    <div class="modal-sub">Beveiligd toegangsportaal voor bestellingenbeheer</div>
+    <input type="password" class="modal-input" id="pwInput" placeholder="Voer wachtwoord in" onkeydown="if(event.key==='Enter')checkLogin()">
+    <button class="modal-btn" onclick="checkLogin()">Inloggen →</button>
+    <div class="modal-error" id="loginError">Ongeldig wachtwoord. Probeer opnieuw.</div>
+  </div>
+</div>
+
+<div id="admin-panel">
+  <div class="admin-header">
+    <div><div class="admin-title">♦ Ghanahouse — Bestellingen</div><div style="font-size:0.78rem;color:rgba(255,255,255,0.4);margin-top:0.1rem">Organisator beheersysteem</div></div>
+    <div style="display:flex;gap:0.75rem;align-items:center">
+      <button class="btn-export" onclick="exportCSV()">⬇ Exporteer CSV</button>
+      <button class="admin-logout" onclick="logout()">Uitloggen</button>
+    </div>
+  </div>
+  <div class="admin-body">
+    <div class="admin-stats">
+      <div class="admin-stat"><span class="num" id="stat-total-orders">0</span><span class="lbl">Bestellingen</span></div>
+      <div class="admin-stat"><span class="num" id="stat-paid">0</span><span class="lbl">Betaald</span></div>
+      <div class="admin-stat"><span class="num" id="stat-unpaid">0</span><span class="lbl">Niet betaald</span></div>
+      <div class="admin-stat"><span class="num" id="stat-revenue">€0</span><span class="lbl">Totaal omzet</span></div>
+    </div>
+    <div class="admin-form-card">
+      <h2>⊕ Nieuwe bestelling toevoegen</h2>
+      <div class="admin-form-grid">
+        <div class="admin-field"><label>Voornaam</label><input type="text" id="f-voornaam" placeholder="Maria"></div>
+        <div class="admin-field"><label>Achternaam</label><input type="text" id="f-achternaam" placeholder="Jansen"></div>
+        <div class="admin-field"><label>E-mailadres</label><input type="email" id="f-email" placeholder="maria@voorbeeld.nl"></div>
+        <div class="admin-field"><label>Telefoonnummer</label><input type="text" id="f-telefoon" placeholder="+31 6 ..."></div>
+        <div class="admin-field"><label>Adres</label><input type="text" id="f-adres" placeholder="Straatnaam 1"></div>
+        <div class="admin-field"><label>Postcode</label><input type="text" id="f-postcode" placeholder="1234 AB"></div>
+        <div class="admin-field"><label>Stad</label><input type="text" id="f-stad" placeholder="Amsterdam"></div>
+        <div class="admin-field"><label>Product / bestelling</label><input type="text" id="f-product" placeholder="Brazilian Wave 24 inch"></div>
+        <div class="admin-field"><label>Kleur / type</label><input type="text" id="f-kleur" placeholder="Natuurlijk zwart, 1B"></div>
+        <div class="admin-field"><label>Aantal</label><input type="number" id="f-aantal" placeholder="2" min="1"></div>
+        <div class="admin-field"><label>Prijs per stuk (€)</label><input type="number" id="f-prijs" placeholder="45.00" step="0.01" min="0"></div>
+        <div class="admin-field"><label>Betaald?</label><select id="f-betaald"><option value="nee">✘ Niet betaald</option><option value="ja">✓ Betaald</option></select></div>
+        <div class="admin-field" style="grid-column:span 2"><label>Notities</label><input type="text" id="f-notities" placeholder="Bijv. spoed, speciale wens..."></div>
+      </div>
+      <div class="admin-form-actions">
+        <button class="btn-admin-add" onclick="addOrder()">Bestelling opslaan</button>
+        <button class="btn-admin-clear" onclick="clearForm()">Wissen</button>
+      </div>
+    </div>
+    <div class="admin-table-card">
+      <div class="admin-table-header">
+        <h2>📋 Bestellingoverzicht</h2>
+        <div class="table-controls">
+          <input class="table-search" type="text" id="searchInput" placeholder="Zoek op naam of product..." oninput="renderTable()">
+          <button class="filter-btn active-all" id="fb-all" onclick="setFilter('all')">Alle</button>
+          <button class="filter-btn" id="fb-paid" onclick="setFilter('ja')">Betaald</button>
+          <button class="filter-btn" id="fb-unpaid" onclick="setFilter('nee')">Niet betaald</button>
+        </div>
+      </div>
+      <div class="table-wrap">
+        <table><thead><tr><th>#</th><th>Naam</th><th>Contact</th><th>Adres</th><th>Product</th><th>Kleur</th><th>Aant.</th><th>Per stuk</th><th>Totaal</th><th>Betaald</th><th>Notities</th><th>Datum</th><th></th></tr></thead><tbody id="orders-tbody"></tbody></table>
+      </div>
+      <div class="table-footer">
+        <div class="total-display"><span class="total-label">Totaal (gefilterd)</span><span class="total-amount" id="total-amount">€ 0,00</span></div>
+        <span style="color:rgba(255,255,255,0.35);font-size:0.8rem" id="result-count">0 bestellingen</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+const PASSWORD='1Ghanahouse';
+let orders=JSON.parse(localStorage.getItem('gh_orders')||'[]');
+let filterState='all';
+function save(){localStorage.setItem('gh_orders',JSON.stringify(orders))}
+function openLogin(){document.getElementById('loginModal').classList.add('active');setTimeout(()=>document.getElementById('pwInput').focus(),100)}
+function closeLogin(){document.getElementById('loginModal').classList.remove('active');document.getElementById('pwInput').value='';document.getElementById('loginError').style.display='none'}
+function checkLogin(){const pw=document.getElementById('pwInput').value;if(pw===PASSWORD){closeLogin();openAdmin()}else{document.getElementById('loginError').style.display='block';document.getElementById('pwInput').value='';document.getElementById('pwInput').focus()}}
+function openAdmin(){document.getElementById('admin-panel').style.display='block';document.body.style.overflow='hidden';renderTable();updateStats()}
+function logout(){document.getElementById('admin-panel').style.display='none';document.body.style.overflow=''}
+function addOrder(){const voornaam=document.getElementById('f-voornaam').value.trim();const achternaam=document.getElementById('f-achternaam').value.trim();const product=document.getElementById('f-product').value.trim();if(!voornaam||!achternaam||!product){showToast('Vul minimaal naam en product in.',true);return}const aantal=parseInt(document.getElementById('f-aantal').value)||1;const prijs=parseFloat(document.getElementById('f-prijs').value)||0;const order={id:Date.now(),voornaam,achternaam,email:document.getElementById('f-email').value.trim(),telefoon:document.getElementById('f-telefoon').value.trim(),adres:document.getElementById('f-adres').value.trim(),postcode:document.getElementById('f-postcode').value.trim(),stad:document.getElementById('f-stad').value.trim(),product,kleur:document.getElementById('f-kleur').value.trim(),aantal,prijs,totaal:aantal*prijs,betaald:document.getElementById('f-betaald').value,notities:document.getElementById('f-notities').value.trim(),datum:new Date().toLocaleDateString('nl-NL')};orders.unshift(order);save();renderTable();updateStats();clearForm();showToast('Bestelling opgeslagen!',false)}
+function deleteOrder(id){if(!confirm('Weet u zeker dat u deze bestelling wilt verwijderen?'))return;orders=orders.filter(o=>o.id!==id);save();renderTable();updateStats();showToast('Bestelling verwijderd.',true)}
+function togglePaid(id){const o=orders.find(x=>x.id===id);if(!o)return;o.betaald=o.betaald==='ja'?'nee':'ja';save();renderTable();updateStats()}
+function clearForm(){['f-voornaam','f-achternaam','f-email','f-telefoon','f-adres','f-postcode','f-stad','f-product','f-kleur','f-notities'].forEach(id=>document.getElementById(id).value='');document.getElementById('f-aantal').value='';document.getElementById('f-prijs').value='';document.getElementById('f-betaald').value='nee'}
+function setFilter(state){filterState=state;document.getElementById('fb-all').className='filter-btn'+(state==='all'?' active-all':'');document.getElementById('fb-paid').className='filter-btn'+(state==='ja'?' active-paid':'');document.getElementById('fb-unpaid').className='filter-btn'+(state==='nee'?' active-unpaid':'');renderTable()}
+function getFiltered(){const q=document.getElementById('searchInput').value.toLowerCase();return orders.filter(o=>{const mF=filterState==='all'||o.betaald===filterState;const mS=!q||(o.voornaam+' '+o.achternaam).toLowerCase().includes(q)||o.product.toLowerCase().includes(q)||(o.stad||'').toLowerCase().includes(q);return mF&&mS})}
+function renderTable(){const filtered=getFiltered();const tbody=document.getElementById('orders-tbody');if(filtered.length===0){tbody.innerHTML='<tr><td colspan="13"><div class="empty-state"><div>Geen bestellingen gevonden</div></div></td></tr>';document.getElementById('total-amount').textContent='€ 0,00';document.getElementById('result-count').textContent='0 bestellingen';return}let totalSum=0;tbody.innerHTML=filtered.map((o,i)=>{totalSum+=o.totaal||0;return'<tr><td style="color:rgba(255,255,255,0.3);font-size:0.78rem">'+(i+1)+'</td><td><strong>'+esc(o.voornaam)+' '+esc(o.achternaam)+'</strong></td><td style="font-size:0.8rem;color:rgba(255,255,255,0.55)">'+esc(o.email)+'<br>'+esc(o.telefoon)+'</td><td style="font-size:0.8rem;color:rgba(255,255,255,0.55)">'+esc(o.adres)+'<br>'+esc(o.postcode)+' '+esc(o.stad)+'</td><td><strong>'+esc(o.product)+'</strong></td><td style="font-size:0.8rem">'+esc(o.kleur)+'</td><td style="text-align:center">'+o.aantal+'</td><td>€ '+(o.prijs||0).toFixed(2)+'</td><td><strong style="color:var(--gold)">€ '+(o.totaal||0).toFixed(2)+'</strong></td><td><button class="paid-badge '+(o.betaald==='ja'?'yes':'no')+'" onclick="togglePaid('+o.id+')">'+(o.betaald==='ja'?'✓ Betaald':'✕ Niet betaald')+'</button></td><td style="font-size:0.8rem;color:rgba(255,255,255,0.5);max-width:150px">'+esc(o.notities)+'</td><td style="font-size:0.78rem;color:rgba(255,255,255,0.35)">'+o.datum+'</td><td><button class="btn-delete" onclick="deleteOrder('+o.id+')">✕</button></td></tr>'}).join('');document.getElementById('total-amount').textContent='€ '+totalSum.toFixed(2).replace('.',',');document.getElementById('result-count').textContent=filtered.length+' bestelling'+(filtered.length!==1?'en':'')}
+function updateStats(){const paid=orders.filter(o=>o.betaald==='ja');const unpaid=orders.filter(o=>o.betaald==='nee');const revenue=orders.reduce((s,o)=>s+(o.totaal||0),0);document.getElementById('stat-total-orders').textContent=orders.length;document.getElementById('stat-paid').textContent=paid.length;document.getElementById('stat-unpaid').textContent=unpaid.length;document.getElementById('stat-revenue').textContent='€'+revenue.toFixed(0)}
+function exportCSV(){if(orders.length===0){showToast('Geen bestellingen om te exporteren.',true);return}const headers=['Nr','Voornaam','Achternaam','Email','Telefoon','Adres','Postcode','Stad','Product','Kleur','Aantal','Prijs per stuk','Totaal','Betaald','Notities','Datum'];const rows=orders.map((o,i)=>[i+1,o.voornaam,o.achternaam,o.email,o.telefoon,o.adres,o.postcode,o.stad,o.product,o.kleur,o.aantal,(o.prijs||0).toFixed(2),(o.totaal||0).toFixed(2),o.betaald==='ja'?'Ja':'Nee',o.notities,o.datum].map(v=>'"'+String(v||'').replace(/"/g,'""')+'"').join(','));const csv='﻿'+[headers.join(','),...rows].join('
+');const blob=new Blob([csv],{type:'text/csv;charset=utf-8;'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download='ghanahouse-bestellingen-'+new Date().toISOString().slice(0,10)+'.csv';a.click();URL.revokeObjectURL(url);showToast('CSV geëxporteerd!',false)}
+function esc(str){if(!str)return'';return String(str).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
+function showToast(msg,isError){const t=document.getElementById('toast');t.textContent=msg;t.className='toast'+(isError?' error':'')+' show';setTimeout(()=>t.className='toast',3000)}
+window.addEventListener('scroll',()=>{const nb=document.querySelector('.navbar');nb.style.padding=window.scrollY>50?'0.7rem 3rem':'1rem 3rem'});
+document.getElementById('loginModal').addEventListener('click',function(e){if(e.target===this)closeLogin()});
+document.getElementById('admin-panel').addEventListener('scroll',function(){const ah=this.querySelector('.admin-header');ah.style.boxShadow=this.scrollTop>5?'0 4px 20px rgba(0,0,0,0.5)':''});
+</script>
+</body>
+</html>
