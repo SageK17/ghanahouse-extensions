@@ -1,0 +1,1826 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ghana House – Extensions & Barber Shop</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #faf9f6;
+    --bg2: #f2ede4;
+    --bg3: #eae4d8;
+    --black: #111111;
+    --text: #2a2a2a;
+    --text-muted: #7a7060;
+    --gold: #b8922e;
+    --gold-light: #d4a843;
+    --gold-pale: #f5ead0;
+    --red: #c0392b;
+    --green: #1a7a3c;
+    --yellow: #f2c200;
+    --white: #ffffff;
+    --border: rgba(0,0,0,0.08);
+    --border-gold: rgba(184,146,46,0.25);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 14px 5%;
+    background: rgba(250,249,246,0.92);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+    transition: padding 0.3s;
+  }
+
+  .nav-logo {
+    display: flex; align-items: center; gap: 0;
+    text-decoration: none;
+  }
+
+  .nav-logo img {
+    height: 56px;
+    width: auto;
+    object-fit: contain;
+  }
+
+  .nav-links {
+    display: flex; align-items: center; gap: 36px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    text-decoration: none;
+    font-size: 13px; font-weight: 500;
+    color: var(--text-muted);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--black); }
+
+  .nav-cta {
+    background: var(--black) !important;
+    color: var(--white) !important;
+    padding: 10px 24px;
+    border-radius: 2px;
+    font-weight: 600 !important;
+    transition: background 0.2s, transform 0.2s !important;
+  }
+
+  .nav-cta:hover { background: #333 !important; transform: translateY(-1px); }
+
+  .nav-social {
+    display: flex; gap: 10px; align-items: center;
+  }
+
+  .nav-social a {
+    width: 36px; height: 36px;
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: all 0.2s;
+    background: var(--white);
+  }
+
+  .nav-social a:hover {
+    background: var(--black);
+    color: var(--white);
+    border-color: var(--black);
+    transform: scale(1.08);
+  }
+
+  .nav-social a svg { width: 15px; height: 15px; fill: currentColor; }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    position: relative;
+    overflow: hidden;
+    background: var(--bg);
+  }
+
+  /* Ghana flag vertical stripe on left edge */
+  .hero::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 5px;
+    background: linear-gradient(to bottom, var(--red) 33.3%, var(--gold-light) 33.3% 66.6%, var(--green) 66.6%);
+    z-index: 3;
+  }
+
+  .hero-left {
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 140px 60px 80px 8%;
+    position: relative; z-index: 2;
+  }
+
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--gold-pale);
+    border: 1px solid var(--border-gold);
+    border-radius: 100px;
+    padding: 6px 16px;
+    font-size: 11px; font-weight: 600;
+    letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 28px; width: fit-content;
+    animation: fadeUp 0.8s ease both;
+  }
+
+  .hero-badge::before {
+    content: '';
+    width: 6px; height: 6px;
+    background: var(--gold);
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.4; transform: scale(1.5); }
+  }
+
+  .hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(46px, 5.5vw, 78px);
+    font-weight: 900;
+    line-height: 1.0;
+    color: var(--black);
+    margin-bottom: 24px;
+    animation: fadeUp 0.8s 0.1s ease both;
+  }
+
+  .hero-title .accent {
+    color: var(--gold);
+    font-style: italic;
+  }
+
+  .hero-desc {
+    font-size: 17px; line-height: 1.75;
+    color: var(--text-muted);
+    max-width: 440px; margin-bottom: 44px;
+    animation: fadeUp 0.8s 0.2s ease both;
+  }
+
+  .hero-actions {
+    display: flex; gap: 14px; align-items: center;
+    animation: fadeUp 0.8s 0.3s ease both;
+  }
+
+  .btn-primary {
+    background: var(--black); color: var(--white);
+    padding: 15px 34px; border: none; border-radius: 2px;
+    font-size: 13px; font-weight: 700;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    text-decoration: none; cursor: pointer; transition: all 0.2s;
+    display: inline-block;
+  }
+
+  .btn-primary:hover { background: #333; transform: translateY(-2px); box-shadow: 0 10px 28px rgba(0,0,0,0.15); }
+
+  .btn-outline {
+    border: 1.5px solid var(--border);
+    color: var(--text);
+    padding: 15px 34px; border-radius: 2px;
+    font-size: 13px; font-weight: 500;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    text-decoration: none; cursor: pointer; transition: all 0.2s;
+    display: inline-block; background: transparent;
+  }
+
+  .btn-outline:hover { border-color: var(--black); color: var(--black); }
+
+  .hero-stats {
+    display: flex; gap: 40px;
+    margin-top: 56px; padding-top: 40px;
+    border-top: 1px solid var(--border);
+    animation: fadeUp 0.8s 0.4s ease both;
+  }
+
+  .stat { display: flex; flex-direction: column; }
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 30px; font-weight: 700;
+    color: var(--gold); line-height: 1;
+  }
+  .stat-label {
+    font-size: 11px; font-weight: 500;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--text-muted); margin-top: 4px;
+  }
+
+  .hero-right {
+    position: relative; overflow: hidden;
+    background: var(--bg2);
+  }
+
+  .hero-right::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(to right, var(--bg) 0%, transparent 25%);
+    z-index: 2;
+  }
+
+  .hero-img {
+    width: 100%; height: 100%;
+    object-fit: cover; opacity: 0.9;
+    animation: zoomIn 1.2s ease both;
+  }
+
+  .hero-right-pattern {
+    position: absolute; inset: 0;
+    background-image: radial-gradient(circle, rgba(184,146,46,0.08) 1px, transparent 1px);
+    background-size: 28px 28px;
+    z-index: 1;
+  }
+
+  /* ── SOCIAL STRIP ── */
+  .social-strip {
+    background: var(--black);
+    padding: 16px 5%;
+    display: flex; align-items: center; justify-content: center; gap: 20px;
+  }
+
+  .social-strip-text {
+    font-size: 12px; font-weight: 700;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+    white-space: nowrap;
+  }
+
+  .social-strip-icons { display: flex; gap: 8px; }
+
+  .social-strip-icons a {
+    display: flex; align-items: center; gap: 8px;
+    border: 1px solid rgba(255,255,255,0.15);
+    color: var(--white);
+    text-decoration: none; padding: 8px 20px;
+    border-radius: 100px; font-size: 12px; font-weight: 600;
+    letter-spacing: 0.05em; text-transform: uppercase;
+    transition: all 0.2s;
+  }
+
+  .social-strip-icons a:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.35); transform: scale(1.03); }
+  .social-strip-icons a svg { width: 14px; height: 14px; fill: currentColor; }
+
+  /* ── SECTIONS ── */
+  .section { padding: 100px 5%; }
+
+  .section-label {
+    font-size: 11px; font-weight: 700;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 14px;
+    display: flex; align-items: center; gap: 12px;
+  }
+
+  .section-label::before {
+    content: ''; width: 28px; height: 1.5px;
+    background: var(--gold);
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(30px, 3.8vw, 50px);
+    font-weight: 700; line-height: 1.15;
+    color: var(--black); margin-bottom: 18px;
+  }
+
+  .section-title .accent { color: var(--gold); font-style: italic; }
+
+  /* ── ABOUT ── */
+  .about-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 80px; align-items: center;
+  }
+
+  .about-visual { position: relative; }
+
+  .about-img-placeholder {
+    width: 100%; aspect-ratio: 4/5;
+    background: var(--bg2);
+    border-radius: 4px;
+    display: flex; align-items: center; justify-content: center;
+    flex-direction: column; gap: 12px;
+    border: 1px solid var(--border);
+  }
+
+  .about-img-placeholder span { font-size: 52px; }
+  .about-img-placeholder p { font-size: 12px; color: var(--text-muted); letter-spacing: 0.1em; text-transform: uppercase; }
+
+  .about-card {
+    position: absolute; bottom: -24px; right: -24px;
+    background: var(--gold);
+    color: var(--white);
+    padding: 24px 28px; border-radius: 4px;
+    box-shadow: 0 16px 40px rgba(184,146,46,0.25);
+  }
+
+  .about-card-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 38px; font-weight: 900; line-height: 1;
+  }
+
+  .about-card-text {
+    font-size: 11px; font-weight: 700;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    margin-top: 4px; opacity: 0.85;
+  }
+
+  .about-body p {
+    font-size: 16px; line-height: 1.8;
+    color: var(--text-muted); margin-bottom: 18px;
+  }
+
+  .about-features {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 12px; margin-top: 36px;
+  }
+
+  .feature-item {
+    display: flex; align-items: flex-start; gap: 12px;
+    padding: 16px; background: var(--bg2);
+    border: 1px solid var(--border); border-radius: 4px;
+  }
+
+  .feature-icon {
+    width: 34px; height: 34px; flex-shrink: 0;
+    background: var(--white); border-radius: 4px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px;
+    border: 1px solid var(--border);
+  }
+
+  .feature-text { font-size: 13px; font-weight: 500; color: var(--text); line-height: 1.4; }
+
+  /* ── SERVICES ── */
+  .services-section { background: var(--bg2); padding: 100px 5%; }
+
+  .services-header {
+    display: flex; justify-content: space-between; align-items: flex-end;
+    margin-bottom: 56px;
+  }
+
+  .services-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 1px; background: var(--border);
+    border: 1px solid var(--border); border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .service-card {
+    background: var(--white);
+    padding: 44px 34px;
+    position: relative; overflow: hidden;
+    cursor: pointer; transition: background 0.25s;
+  }
+
+  .service-card:hover { background: var(--bg); }
+
+  .service-card::after {
+    content: ''; position: absolute;
+    bottom: 0; left: 0; right: 0; height: 2px;
+    background: var(--gold);
+    transform: scaleX(0); transition: transform 0.3s;
+  }
+
+  .service-card:hover::after { transform: scaleX(1); }
+
+  .service-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 44px; font-weight: 900;
+    color: rgba(184,146,46,0.12); line-height: 1;
+    margin-bottom: 20px;
+  }
+
+  .service-icon { font-size: 26px; margin-bottom: 14px; }
+
+  .service-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 21px; font-weight: 700;
+    color: var(--black); margin-bottom: 10px;
+  }
+
+  .service-desc { font-size: 14px; line-height: 1.7; color: var(--text-muted); }
+
+  .service-link {
+    display: inline-flex; align-items: center; gap: 7px;
+    margin-top: 22px; font-size: 12px; font-weight: 700;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--gold); text-decoration: none;
+    transition: gap 0.2s;
+  }
+
+  .service-link:hover { gap: 13px; }
+
+  /* ── BRANDS ── */
+  .brands-section {
+    background: var(--black); padding: 72px 5%;
+    text-align: center;
+  }
+
+  .brands-label {
+    font-size: 11px; font-weight: 700;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    color: rgba(255,255,255,0.25); margin-bottom: 36px;
+  }
+
+  .brands-scroll { display: flex; overflow: hidden; position: relative; }
+  .brands-scroll::before, .brands-scroll::after {
+    content: ''; position: absolute;
+    top: 0; bottom: 0; width: 120px; z-index: 2;
+  }
+  .brands-scroll::before { left: 0; background: linear-gradient(to right, var(--black), transparent); }
+  .brands-scroll::after { right: 0; background: linear-gradient(to left, var(--black), transparent); }
+
+  .brands-track {
+    display: flex; flex-shrink: 0;
+    animation: scroll 22s linear infinite;
+  }
+
+  @keyframes scroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  .brand-item {
+    padding: 16px 44px;
+    font-family: 'Playfair Display', serif;
+    font-size: 18px; font-weight: 700;
+    color: rgba(255,255,255,0.18);
+    white-space: nowrap;
+    border-right: 1px solid rgba(255,255,255,0.06);
+    transition: color 0.3s; cursor: default;
+  }
+
+  .brand-item:hover { color: var(--gold-light); }
+
+  /* ── PRODUCTS ── */
+  .products-section { padding: 100px 5%; }
+
+  .products-header {
+    display: flex; justify-content: space-between; align-items: flex-end;
+    margin-bottom: 44px;
+  }
+
+  .products-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+
+  .product-card {
+    background: var(--white);
+    border: 1px solid var(--border); border-radius: 4px;
+    overflow: hidden; cursor: pointer; transition: all 0.3s;
+  }
+
+  .product-card:hover { border-color: var(--border-gold); transform: translateY(-4px); box-shadow: 0 16px 40px rgba(0,0,0,0.08); }
+
+  .product-img {
+    aspect-ratio: 1;
+    background: var(--bg2);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 48px; position: relative;
+  }
+
+  .product-tag {
+    position: absolute; top: 12px; left: 12px;
+    background: var(--gold); color: var(--white);
+    font-size: 10px; font-weight: 700;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    padding: 4px 10px; border-radius: 2px;
+  }
+
+  .product-info { padding: 18px 20px 20px; }
+
+  .product-brand {
+    font-size: 10px; font-weight: 700;
+    letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 5px;
+  }
+
+  .product-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 15px; font-weight: 700;
+    color: var(--black); margin-bottom: 8px; line-height: 1.3;
+  }
+
+  .product-price { font-size: 17px; font-weight: 600; color: var(--text); }
+
+  /* ── SOCIAL SECTION ── */
+  .social-section {
+    padding: 100px 5%;
+    background: var(--bg2);
+    position: relative; overflow: hidden;
+  }
+
+  .social-section::before {
+    content: '';
+    position: absolute; top: -150px; right: -150px;
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(184,146,46,0.06) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .social-platforms {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 18px; margin-top: 52px;
+  }
+
+  .social-card {
+    position: relative; border-radius: 10px;
+    overflow: hidden; text-decoration: none;
+    display: block; transition: transform 0.3s, box-shadow 0.3s;
+  }
+
+  .social-card:hover { transform: translateY(-6px); box-shadow: 0 24px 56px rgba(0,0,0,0.16); }
+
+  .social-card-inner {
+    padding: 36px 30px 30px;
+    display: flex; flex-direction: column; gap: 14px;
+    min-height: 220px;
+  }
+
+  .social-card.instagram .social-card-inner { background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045); }
+  .social-card.tiktok .social-card-inner { background: linear-gradient(135deg, #010101 0%, #111 40%, #EE1D52 100%); }
+  .social-card.facebook .social-card-inner { background: linear-gradient(135deg, #1877f2, #0a5dc2); }
+
+  .social-card-icon {
+    width: 50px; height: 50px;
+    background: rgba(255,255,255,0.2);
+    backdrop-filter: blur(8px); border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+  }
+
+  .social-card-icon svg { width: 26px; height: 26px; fill: white; }
+  .social-card-name { font-family: 'Playfair Display', serif; font-size: 23px; font-weight: 700; color: white; }
+  .social-card-handle { font-size: 13px; color: rgba(255,255,255,0.75); font-weight: 500; }
+
+  .social-card-cta {
+    margin-top: auto;
+    display: inline-flex; align-items: center; gap: 7px;
+    background: rgba(255,255,255,0.18);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255,255,255,0.3);
+    color: white; padding: 9px 18px; border-radius: 100px;
+    font-size: 11px; font-weight: 700;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    transition: background 0.2s; width: fit-content;
+  }
+
+  .social-card:hover .social-card-cta { background: rgba(255,255,255,0.3); }
+
+  .social-follow-bar {
+    margin-top: 44px;
+    background: var(--black);
+    border-radius: 8px; padding: 30px 40px;
+    display: flex; align-items: center; justify-content: space-between; gap: 24px;
+  }
+
+  .follow-bar-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 21px; font-weight: 700; color: var(--white);
+  }
+
+  .follow-bar-sub { font-size: 13px; color: rgba(255,255,255,0.4); margin-top: 4px; }
+
+  .follow-bar-icons { display: flex; gap: 10px; flex-wrap: wrap; }
+
+  .follow-btn {
+    display: flex; align-items: center; gap: 9px;
+    padding: 11px 22px; border-radius: 4px;
+    font-size: 13px; font-weight: 700;
+    letter-spacing: 0.04em; text-decoration: none;
+    transition: all 0.2s; border: 1px solid transparent;
+  }
+
+  .follow-btn svg { width: 16px; height: 16px; fill: currentColor; }
+  .follow-btn.ig { background: linear-gradient(135deg, #833ab4, #fd1d1d); color: white; }
+  .follow-btn.ig:hover { opacity: 0.85; transform: translateY(-2px); }
+  .follow-btn.tt { background: #111; color: white; border-color: rgba(255,255,255,0.1); }
+  .follow-btn.tt:hover { background: #222; transform: translateY(-2px); }
+  .follow-btn.fb { background: #1877f2; color: white; }
+  .follow-btn.fb:hover { background: #1464d8; transform: translateY(-2px); }
+
+  /* ── VISIT ── */
+  .visit-section {
+    background: var(--gold-pale);
+    border-top: 1px solid var(--border-gold);
+    padding: 80px 5%;
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 80px; align-items: center;
+  }
+
+  .visit-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(32px, 3.8vw, 52px); font-weight: 900;
+    color: var(--black); line-height: 1.1; margin-bottom: 18px;
+  }
+
+  .visit-desc { font-size: 16px; line-height: 1.7; color: var(--text-muted); margin-bottom: 34px; }
+
+  .visit-details { display: flex; flex-direction: column; gap: 14px; }
+
+  .visit-detail { display: flex; align-items: center; gap: 14px; }
+
+  .visit-detail-icon {
+    width: 40px; height: 40px;
+    background: var(--white); border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px; flex-shrink: 0;
+    border: 1px solid var(--border-gold);
+    box-shadow: 0 2px 8px rgba(184,146,46,0.1);
+  }
+
+  .visit-detail-text { font-size: 15px; font-weight: 500; color: var(--black); }
+  .visit-detail-text strong { display: block; font-size: 10px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); font-weight: 600; margin-bottom: 2px; }
+
+  .map-placeholder {
+    background: var(--white); border-radius: 8px;
+    aspect-ratio: 4/3;
+    display: flex; align-items: center; justify-content: center;
+    flex-direction: column; gap: 12px;
+    font-size: 48px;
+    border: 1px solid var(--border-gold);
+    box-shadow: 0 8px 32px rgba(184,146,46,0.1);
+  }
+
+  .map-placeholder p { font-size: 14px; color: var(--text-muted); font-weight: 500; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--black);
+    padding: 64px 5% 28px;
+  }
+
+  .footer-grid {
+    display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 60px; margin-bottom: 48px;
+  }
+
+  .footer-brand { display: flex; flex-direction: column; gap: 16px; }
+
+  .footer-logo { height: 54px; width: auto; object-fit: contain; }
+
+  .footer-desc {
+    font-size: 14px; line-height: 1.7;
+    color: rgba(255,255,255,0.35); max-width: 270px;
+  }
+
+  .footer-social { display: flex; gap: 9px; margin-top: 6px; }
+
+  .footer-social a {
+    width: 36px; height: 36px;
+    border: 1px solid rgba(255,255,255,0.1); border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    color: rgba(255,255,255,0.4); text-decoration: none;
+    transition: all 0.2s;
+  }
+
+  .footer-social a:hover { border-color: var(--gold-light); color: var(--gold-light); }
+  .footer-social a svg { width: 14px; height: 14px; fill: currentColor; }
+
+  .footer-col h4 {
+    font-size: 11px; font-weight: 700;
+    letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--white); margin-bottom: 18px;
+  }
+
+  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+  .footer-col ul li a { font-size: 14px; color: rgba(255,255,255,0.35); text-decoration: none; transition: color 0.2s; }
+  .footer-col ul li a:hover { color: var(--gold-light); }
+
+  .footer-bottom {
+    padding-top: 28px;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    display: flex; justify-content: space-between; align-items: center;
+  }
+
+  .footer-bottom p { font-size: 13px; color: rgba(255,255,255,0.2); }
+
+  .flag-colors { display: flex; gap: 6px; }
+  .flag-dot { width: 8px; height: 8px; border-radius: 50%; }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(22px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes zoomIn {
+    from { transform: scale(1.08); }
+    to { transform: scale(1); }
+  }
+
+  .reveal {
+    opacity: 0; transform: translateY(28px);
+    transition: opacity 0.65s ease, transform 0.65s ease;
+  }
+
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* ── ORDER FORM (PUBLIC) ── */
+  .order-section {
+    padding: 100px 5%;
+    background: var(--black);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .order-section::before {
+    content: '';
+    position: absolute; top: -200px; left: -200px;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(184,146,46,0.06) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .order-section .section-label { color: var(--gold-light); }
+  .order-section .section-title { color: var(--white); }
+  .order-section .section-title .accent { color: var(--gold-light); }
+
+  .order-intro {
+    font-size: 16px; line-height: 1.7;
+    color: rgba(255,255,255,0.5);
+    max-width: 540px; margin-bottom: 48px;
+  }
+
+  .order-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: start;
+  }
+
+  .order-form-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 8px;
+    padding: 2.5rem;
+  }
+
+  .order-form-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem; font-weight: 700;
+    color: var(--gold-light);
+    margin-bottom: 0.5rem;
+  }
+
+  .order-form-sub {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.35);
+    margin-bottom: 1.8rem;
+  }
+
+  .order-form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .order-field { display: flex; flex-direction: column; }
+
+  .order-field.full { grid-column: span 2; }
+
+  .order-field label {
+    font-size: 0.72rem; font-weight: 600;
+    color: rgba(255,255,255,0.45);
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    margin-bottom: 0.4rem;
+  }
+
+  .order-field input,
+  .order-field textarea,
+  .order-field select {
+    width: 100%;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    color: #fff;
+    padding: 0.75rem 1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.9rem;
+    outline: none;
+    transition: border-color 0.2s;
+    border-radius: 4px;
+  }
+
+  .order-field input:focus,
+  .order-field textarea:focus,
+  .order-field select:focus {
+    border-color: var(--gold-light);
+  }
+
+  .order-field input::placeholder,
+  .order-field textarea::placeholder {
+    color: rgba(255,255,255,0.2);
+  }
+
+  .order-field select option { background: #222; }
+
+  .order-field textarea { resize: vertical; min-height: 70px; }
+
+  .order-submit-row {
+    margin-top: 1.5rem;
+    display: flex; gap: 1rem; align-items: center;
+  }
+
+  .btn-order-submit {
+    background: var(--gold);
+    color: #111; border: none;
+    padding: 0.95rem 2.5rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 700; font-size: 0.95rem;
+    cursor: pointer; border-radius: 4px;
+    transition: all 0.2s;
+    letter-spacing: 0.03em;
+  }
+
+  .btn-order-submit:hover { background: var(--gold-light); transform: translateY(-1px); }
+
+  .order-info-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 8px;
+    padding: 2.5rem;
+  }
+
+  .order-info-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem; font-weight: 700;
+    color: var(--white);
+    margin-bottom: 1.5rem;
+  }
+
+  .order-steps { display: flex; flex-direction: column; gap: 1.5rem; }
+
+  .order-step {
+    display: flex; gap: 16px; align-items: flex-start;
+  }
+
+  .order-step-num {
+    width: 36px; height: 36px; flex-shrink: 0;
+    background: rgba(184,146,46,0.15);
+    border: 1px solid rgba(184,146,46,0.3);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 0.9rem; font-weight: 700;
+    color: var(--gold-light);
+  }
+
+  .order-step-text {
+    font-size: 0.9rem; line-height: 1.6;
+    color: rgba(255,255,255,0.6);
+    padding-top: 6px;
+  }
+
+  .order-step-text strong {
+    color: var(--white); display: block;
+    font-size: 0.95rem; margin-bottom: 2px;
+  }
+
+  .order-confirmation {
+    display: none;
+    text-align: center;
+    padding: 3rem 2rem;
+  }
+
+  .order-confirmation.show { display: block; }
+  .order-confirmation .conf-icon { font-size: 3.5rem; margin-bottom: 1rem; }
+  .order-confirmation .conf-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem; font-weight: 700;
+    color: var(--gold-light); margin-bottom: 0.5rem;
+  }
+  .order-confirmation .conf-text {
+    font-size: 0.95rem; color: rgba(255,255,255,0.5); line-height: 1.6; max-width: 360px; margin: 0 auto;
+  }
+  .order-confirmation .btn-new-order {
+    margin-top: 1.5rem;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    color: rgba(255,255,255,0.7);
+    padding: 0.7rem 1.5rem;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.85rem; font-weight: 600;
+    cursor: pointer; border-radius: 4px;
+    transition: all 0.2s;
+  }
+  .order-confirmation .btn-new-order:hover { background: rgba(255,255,255,0.12); color: #fff; }
+
+  .product-card { cursor: pointer; }
+
+  .order-source-badge {
+    display: inline-flex; align-items: center; gap: 0.3rem;
+    padding: 0.2rem 0.55rem;
+    border-radius: 100px;
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+  }
+
+  .order-source-badge.web {
+    background: rgba(52,152,219,0.15);
+    border: 1px solid rgba(52,152,219,0.3);
+    color: #5dade2;
+  }
+
+  .order-source-badge.manual {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    color: rgba(255,255,255,0.4);
+  }
+
+  @media (max-width: 900px) {
+    .order-grid { grid-template-columns: 1fr; }
+    .order-form-grid { grid-template-columns: 1fr; }
+    .order-field.full { grid-column: span 1; }
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .hero { grid-template-columns: 1fr; }
+    .hero-right { display: none; }
+    .about-grid, .visit-section { grid-template-columns: 1fr; }
+    .services-grid { grid-template-columns: 1fr 1fr; }
+    .products-grid { grid-template-columns: 1fr 1fr; }
+    .social-platforms { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+    .nav-links { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#">
+    <img src="https://ghanahouse.nl/wp-content/uploads/2022/08/cropped-ghouse.png" alt="Ghana House" class="nav-logo-img">
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">About Us</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#social">Socials</a></li>
+    <li><a href="#bestellen">Bestellen</a></li>
+    <li><a href="#shop" class="nav-cta">Shop</a></li>
+  </ul>
+  <div class="nav-social">
+    <a href="https://www.instagram.com/extensions_barbershop" target="_blank" aria-label="Instagram">
+      <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+    </a>
+    <a href="https://www.tiktok.com/@extensions_barbershop" target="_blank" aria-label="TikTok">
+      <svg viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+    </a>
+    <a href="https://www.facebook.com/vickyronny" target="_blank" aria-label="Facebook">
+      <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+    </a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-badge">✦ Enschede's premium beauty & barber destination</div>
+    <h1 class="hero-title">
+      Your hair,<br>
+      your <span class="accent">identity.</span>
+    </h1>
+    <p class="hero-desc">Premium extensions, professional barber services and a carefully curated collection of the finest African and international hair products.</p>
+    <div class="hero-actions">
+      <a href="#shop" class="btn-primary">Visit the Shop</a>
+      <a href="#services" class="btn-outline">Our Services</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><span class="stat-num">500+</span><span class="stat-label">Products</span></div>
+      <div class="stat"><span class="stat-num">15+</span><span class="stat-label">Brands</span></div>
+      <div class="stat"><span class="stat-num">10+</span><span class="stat-label">Years experience</span></div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-right-pattern"></div>
+    <img class="hero-img" src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=900&auto=format&fit=crop&q=80" alt="Ghana House" onerror="this.style.display='none'">
+  </div>
+</section>
+
+<!-- SOCIAL STRIP -->
+<div class="social-strip">
+  <span class="social-strip-text">Follow us on social media →</span>
+  <div class="social-strip-icons">
+    <a href="https://www.instagram.com/extensions_barbershop" target="_blank">
+      <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+      Instagram
+    </a>
+    <a href="https://www.tiktok.com/@extensions_barbershop" target="_blank">
+      <svg viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+      TikTok
+    </a>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section class="section" id="about">
+  <div class="about-grid">
+    <div class="about-visual reveal">
+      <div class="about-img-placeholder">
+        <span>💈</span>
+        <p>Ghana House Store</p>
+      </div>
+      <div class="about-card">
+        <div class="about-card-num">#1</div>
+        <div class="about-card-text">Afro Beauty<br>Shop in region</div>
+      </div>
+    </div>
+    <div class="about-body reveal">
+      <div class="section-label">About Us</div>
+      <h2 class="section-title">More than a shop — an <span class="accent">experience.</span></h2>
+      <p>Ghana House is the go-to destination for anyone looking for premium hair extensions, African hair products and professional barber services in Enschede.</p>
+      <p>We combine years of expertise with a passion for beauty, offering products from the best international brands.</p>
+      <div class="about-features">
+        <div class="feature-item"><div class="feature-icon">✂️</div><div class="feature-text">Professional Barber Shop services</div></div>
+        <div class="feature-item"><div class="feature-icon">💆</div><div class="feature-text">Hair extensions & wigs collection</div></div>
+        <div class="feature-item"><div class="feature-icon">🧴</div><div class="feature-text">Premium hair products & care</div></div>
+        <div class="feature-item"><div class="feature-icon">🌍</div><div class="feature-text">African & international brands</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services-section" id="services">
+  <div class="services-header reveal">
+    <div>
+      <div class="section-label">What we offer</div>
+      <h2 class="section-title">Our <span class="accent">Services</span></h2>
+    </div>
+    <a href="#bestellen" class="btn-outline" style="flex-shrink:0">Bestel nu →</a>
+  </div>
+  <div class="services-grid">
+    <div class="service-card reveal">
+      <div class="service-number">01</div>
+      <div class="service-icon">💇</div>
+      <div class="service-name">Hair Extensions</div>
+      <p class="service-desc">From clip-in to nano rings — we have the perfect extensions for every hair type and desired look.</p>
+      <a href="#bestellen" class="service-link">Bestel extensions →</a>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-number">02</div>
+      <div class="service-icon">✂️</div>
+      <div class="service-name">Barber Shop</div>
+      <p class="service-desc">Professional hairdressing and barbering services. From modern cuts to classic looks, our specialists do it all.</p>
+      <a href="#contact" class="service-link">Maak afspraak →</a>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-number">03</div>
+      <div class="service-icon">🧴</div>
+      <div class="service-name">Hair Products</div>
+      <p class="service-desc">An extensive collection of the best products for African, curly and textured hair.</p>
+      <a href="#shop" class="service-link">Bekijk producten →</a>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-number">04</div>
+      <div class="service-icon">👑</div>
+      <div class="service-name">Wigs & Weaves</div>
+      <p class="service-desc">Luxury wigs and weaves in all lengths, textures and colours. Human hair and synthetic.</p>
+      <a href="#bestellen" class="service-link">Bestel nu →</a>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-number">05</div>
+      <div class="service-icon">🎨</div>
+      <div class="service-name">Hair Coloring</div>
+      <p class="service-desc">Professional colour treatments using quality products for stunning results.</p>
+      <a href="#contact" class="service-link">Vraag advies →</a>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-number">06</div>
+      <div class="service-icon">📦</div>
+      <div class="service-name">Online Orders</div>
+      <p class="service-desc">Order your favourite products online and receive them at home or pick them up in-store.</p>
+      <a href="#bestellen" class="service-link">Bestel online →</a>
+    </div>
+  </div>
+</section>
+
+<!-- BRANDS -->
+<section class="brands-section">
+  <div class="brands-label">Brands we carry</div>
+  <div class="brands-scroll">
+    <div class="brands-track">
+      <div class="brand-item">Creme of Nature</div>
+      <div class="brand-item">Dark & Lovely</div>
+      <div class="brand-item">ORS</div>
+      <div class="brand-item">Cantu</div>
+      <div class="brand-item">African Pride</div>
+      <div class="brand-item">Shea Moisture</div>
+      <div class="brand-item">Carol's Daughter</div>
+      <div class="brand-item">Design Essentials</div>
+      <div class="brand-item">Aunt Jackie's</div>
+      <div class="brand-item">Mielle</div>
+      <div class="brand-item">Creme of Nature</div>
+      <div class="brand-item">Dark & Lovely</div>
+      <div class="brand-item">ORS</div>
+      <div class="brand-item">Cantu</div>
+      <div class="brand-item">African Pride</div>
+      <div class="brand-item">Shea Moisture</div>
+      <div class="brand-item">Carol's Daughter</div>
+      <div class="brand-item">Design Essentials</div>
+      <div class="brand-item">Aunt Jackie's</div>
+      <div class="brand-item">Mielle</div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section class="products-section" id="shop">
+  <div class="products-header reveal">
+    <div>
+      <div class="section-label">New collection</div>
+      <h2 class="section-title">Featured <span class="accent">Products</span></h2>
+    </div>
+    <a href="https://ghanahouse.nl/shop" target="_blank" class="btn-primary">Volledige Shop →</a>
+  </div>
+  <div class="products-grid">
+    <div class="product-card reveal" onclick="fillOrderFromProduct('Argan Oil Moisturizer','Creme of Nature','12.99')">
+      <div class="product-img">🧴<div class="product-tag">Bestseller</div></div>
+      <div class="product-info">
+        <div class="product-brand">Creme of Nature</div>
+        <div class="product-name">Argan Oil Moisturizer</div>
+        <div class="product-price">€12,99</div>
+      </div>
+    </div>
+    <div class="product-card reveal" onclick="fillOrderFromProduct('Shea Butter Leave-In','Cantu','9.99')">
+      <div class="product-img">💆<div class="product-tag">New</div></div>
+      <div class="product-info">
+        <div class="product-brand">Cantu</div>
+        <div class="product-name">Shea Butter Leave-In</div>
+        <div class="product-price">€9,99</div>
+      </div>
+    </div>
+    <div class="product-card reveal" onclick="fillOrderFromProduct('Premium Lace Wig — Natural','vickyronny','89.00')">
+      <div class="product-img">👑</div>
+      <div class="product-info">
+        <div class="product-brand">vickyronny</div>
+        <div class="product-name">Premium Lace Wig — Natural</div>
+        <div class="product-price">€89,00</div>
+      </div>
+    </div>
+    <div class="product-card reveal" onclick="fillOrderFromProduct('Olive Oil Edge Control','ORS','7.49')">
+      <div class="product-img">✨<div class="product-tag">Sale</div></div>
+      <div class="product-info">
+        <div class="product-brand">ORS</div>
+        <div class="product-name">Olive Oil Edge Control</div>
+        <div class="product-price">€7,49</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ORDER SECTION (PUBLIC) -->
+<section class="order-section" id="bestellen">
+  <div class="reveal">
+    <div class="section-label">Online bestellen</div>
+    <h2 class="section-title">Bestel <span class="accent">direct</span> via onze website</h2>
+    <p class="order-intro">Vul het formulier in en wij verwerken je bestelling. Je ontvangt bevestiging via e-mail of telefoon. Afhalen in de winkel of thuisbezorging mogelijk.</p>
+  </div>
+  <div class="order-grid">
+    <div class="order-form-card reveal" id="publicOrderFormCard">
+      <div class="order-form-title">🛒 Bestelformulier</div>
+      <div class="order-form-sub">Velden met * zijn verplicht</div>
+      <div class="order-form-grid">
+        <div class="order-field"><label>Voornaam *</label><input type="text" id="pub-voornaam" placeholder="Maria"></div>
+        <div class="order-field"><label>Achternaam *</label><input type="text" id="pub-achternaam" placeholder="Jansen"></div>
+        <div class="order-field"><label>E-mailadres *</label><input type="email" id="pub-email" placeholder="maria@voorbeeld.nl"></div>
+        <div class="order-field"><label>Telefoonnummer *</label><input type="text" id="pub-telefoon" placeholder="+31 6 12345678"></div>
+        <div class="order-field"><label>Adres</label><input type="text" id="pub-adres" placeholder="Straatnaam 1"></div>
+        <div class="order-field"><label>Postcode</label><input type="text" id="pub-postcode" placeholder="1234 AB"></div>
+        <div class="order-field"><label>Stad</label><input type="text" id="pub-stad" placeholder="Enschede"></div>
+        <div class="order-field"><label>Levering</label>
+          <select id="pub-levering">
+            <option value="Afhalen in winkel">🏪 Afhalen in winkel</option>
+            <option value="Thuisbezorging">🚚 Thuisbezorging</option>
+          </select>
+        </div>
+        <div class="order-field full"><label>Product / bestelling *</label><input type="text" id="pub-product" placeholder="Bijv. Brazilian Wave 24 inch"></div>
+        <div class="order-field"><label>Kleur / type</label><input type="text" id="pub-kleur" placeholder="Bijv. Natuurlijk zwart, 1B"></div>
+        <div class="order-field"><label>Aantal</label><input type="number" id="pub-aantal" placeholder="1" min="1" value="1"></div>
+        <div class="order-field full"><label>Opmerkingen</label><textarea id="pub-notities" placeholder="Speciale wensen, vragen, of opmerkingen..."></textarea></div>
+      </div>
+      <div class="order-submit-row">
+        <button class="btn-order-submit" onclick="submitPublicOrder()">Bestelling plaatsen →</button>
+      </div>
+      <div class="order-confirmation" id="orderConfirmation">
+        <div class="conf-icon">✓</div>
+        <div class="conf-title">Bestelling ontvangen!</div>
+        <div class="conf-text">Bedankt voor je bestelling. We nemen zo snel mogelijk contact met je op om de betaling en levering te bevestigen.</div>
+        <button class="btn-new-order" onclick="resetPublicOrder()">Nog een bestelling plaatsen</button>
+      </div>
+    </div>
+    <div class="order-info-card reveal">
+      <div class="order-info-title">Hoe werkt het?</div>
+      <div class="order-steps">
+        <div class="order-step">
+          <div class="order-step-num">1</div>
+          <div class="order-step-text"><strong>Vul het formulier in</strong>Selecteer je product, kleur en aantal. Vergeet je contactgegevens niet.</div>
+        </div>
+        <div class="order-step">
+          <div class="order-step-num">2</div>
+          <div class="order-step-text"><strong>Wij ontvangen je bestelling</strong>Je bestelling verschijnt direct in ons systeem en we controleren de beschikbaarheid.</div>
+        </div>
+        <div class="order-step">
+          <div class="order-step-num">3</div>
+          <div class="order-step-text"><strong>Bevestiging & betaling</strong>We nemen contact met je op voor de betaling via iDEAL, Tikkie of contant bij afhalen.</div>
+        </div>
+        <div class="order-step">
+          <div class="order-step-num">4</div>
+          <div class="order-step-text"><strong>Afhalen of bezorgen</strong>Haal je bestelling op in de winkel of wij bezorgen het bij je thuis.</div>
+        </div>
+      </div>
+      <div style="margin-top:2rem;padding:1.2rem;background:rgba(184,146,46,0.08);border:1px solid rgba(184,146,46,0.2);border-radius:6px">
+        <div style="font-size:0.8rem;font-weight:700;color:var(--gold-light);margin-bottom:0.4rem">💡 Tip</div>
+        <div style="font-size:0.85rem;color:rgba(255,255,255,0.5);line-height:1.5">Klik op een product hierboven om het automatisch in het bestelformulier in te vullen!</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOCIAL SECTION -->
+<section class="social-section" id="social">
+  <div class="reveal">
+    <div class="section-label">Follow us</div>
+    <h2 class="section-title">Stay <span style="color:var(--red);font-style:italic">up to date</span> via social media</h2>
+    <p style="font-size:16px;line-height:1.7;color:var(--text-muted);max-width:500px;margin-top:12px">New products, style inspiration, tips & tricks and more — follow us for daily updates.</p>
+  </div>
+  <div class="social-platforms">
+    <a class="social-card instagram" href="https://www.instagram.com/extensions_barbershop" target="_blank">
+      <div class="social-card-inner">
+        <div class="social-card-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+        </div>
+        <div class="social-card-name">Instagram</div>
+        <div class="social-card-handle">@extensions_barbershop</div>
+        <div class="social-card-cta">Follow us →</div>
+      </div>
+    </a>
+    <a class="social-card tiktok" href="https://www.tiktok.com/@extensions_barbershop" target="_blank">
+      <div class="social-card-inner">
+        <div class="social-card-icon">
+          <svg viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+        </div>
+        <div class="social-card-name">TikTok</div>
+        <div class="social-card-handle">@extensions_barbershop</div>
+        <div class="social-card-cta">Watch videos →</div>
+      </div>
+    </a>
+    <a class="social-card facebook" href="https://www.facebook.com/vickyronny" target="_blank">
+      <div class="social-card-inner">
+        <div class="social-card-icon">
+          <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+        </div>
+        <div class="social-card-name">Facebook</div>
+        <div class="social-card-handle">vickyronny</div>
+        <div class="social-card-cta">Like page →</div>
+      </div>
+    </a>
+  </div>
+
+  <div class="social-follow-bar reveal">
+    <div class="follow-bar-text">
+      <div class="follow-bar-title">Follow Ghana House now</div>
+      <div class="follow-bar-sub">Daily new content, product tips & inspiration</div>
+    </div>
+    <div class="follow-bar-icons">
+      <a class="follow-btn ig" href="https://www.instagram.com/extensions_barbershop" target="_blank">
+        <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+        @extensions_barbershop
+      </a>
+      <a class="follow-btn tt" href="https://www.tiktok.com/@extensions_barbershop" target="_blank">
+        <svg viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+        @extensions_barbershop
+      </a>
+      <a class="follow-btn fb" href="https://www.facebook.com/vickyronny" target="_blank">
+        <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+        Ghana House
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- VISIT -->
+<section class="visit-section" id="contact">
+  <div class="reveal">
+    <h2 class="visit-title">Bezoek ons in Enschede</h2>
+    <p class="visit-desc">Kom langs in onze winkel voor persoonlijk advies en bekijk onze volledige collectie.</p>
+    <div class="visit-details">
+      <div class="visit-detail">
+        <div class="visit-detail-icon">📍</div>
+        <div class="visit-detail-text"><strong>Adres</strong>Korte Haaksbergerstraat 19, 7511 JV Enschede</div>
+      </div>
+      <div class="visit-detail">
+        <div class="visit-detail-icon">🕐</div>
+        <div class="visit-detail-text"><strong>Openingstijden</strong>
+          Ma: 13:00 – 17:30 · Di–Wo: 10:30 – 18:00<br>
+          Do–Vr: 10:30 – 17:00 · Za: op afspraak · Zo: gesloten
+        </div>
+      </div>
+      <div class="visit-detail">
+        <div class="visit-detail-icon">📞</div>
+        <div class="visit-detail-text"><strong>Telefoon</strong><a href="tel:+31687030400" style="color:var(--black);text-decoration:none">06 870 30 400</a> · <a href="tel:+31534346996" style="color:var(--black);text-decoration:none">053 434 6996</a></div>
+      </div>
+      <div class="visit-detail">
+        <div class="visit-detail-icon">📱</div>
+        <div class="visit-detail-text"><strong>WhatsApp / Socials</strong><a href="https://wa.me/31687030400" target="_blank" style="color:var(--gold);text-decoration:none;font-weight:600">WhatsApp ons →</a> of DM via Instagram</div>
+      </div>
+      <div class="visit-detail">
+        <div class="visit-detail-icon">🌐</div>
+        <div class="visit-detail-text"><strong>Online Shop</strong><a href="https://ghanahouse.nl/shop" target="_blank" style="color:var(--gold);text-decoration:none;font-weight:600">ghanahouse.nl/shop</a></div>
+      </div>
+    </div>
+  </div>
+  <div class="reveal" style="border-radius:8px;overflow:hidden;border:1px solid var(--border-gold);box-shadow:0 8px 32px rgba(184,146,46,0.1)">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2440.5!2d6.8907!3d52.21996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47b813fd3a0ed1f1%3A0x6c4e4e1c5a8e9f0a!2sKorte%20Haaksbergerstraat%2019%2C%207511%20JV%20Enschede!5e0!3m2!1snl!2snl!4v1700000000000!5m2!1snl!2snl" width="100%" height="400" style="border:0;display:block" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="#" style="display:inline-block">
+        <img src="https://ghanahouse.nl/wp-content/uploads/2022/08/cropped-ghouse.png" alt="Ghana House" class="footer-logo" style="height:54px;width:auto;object-fit:contain;display:block;background:rgba(255,255,255,0.9);padding:6px 10px;border-radius:6px">
+      </a>
+      <p class="footer-desc">Premium hair products, extensions and barber services.<br>Korte Haaksbergerstraat 19, 7511 JV Enschede<br><a href="tel:+31687030400" style="color:rgba(255,255,255,0.5);text-decoration:none">06 870 30 400</a></p>
+      <div class="footer-social">
+        <a href="https://www.instagram.com/extensions_barbershop" target="_blank" aria-label="Instagram">
+          <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+        </a>
+        <a href="https://www.tiktok.com/@extensions_barbershop" target="_blank" aria-label="TikTok">
+          <svg viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+        </a>
+        <a href="https://www.facebook.com/vickyronny" target="_blank" aria-label="Facebook">
+          <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+        </a>
+        <a href="https://wa.me/31687030400" target="_blank" aria-label="WhatsApp" style="color:rgba(255,255,255,0.4)">
+          <svg viewBox="0 0 24 24" style="width:14px;height:14px;fill:currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Shop</h4>
+      <ul>
+        <li><a href="#bestellen">Extensions bestellen</a></li>
+        <li><a href="#bestellen">Wigs & Weaves</a></li>
+        <li><a href="#shop">Hair Products</a></li>
+        <li><a href="https://ghanahouse.nl/shop" target="_blank">Volledige webshop</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Info</h4>
+      <ul>
+        <li><a href="#about">Over ons</a></li>
+        <li><a href="#contact">Contact & locatie</a></li>
+        <li><a href="#contact">Openingstijden</a></li>
+        <li><a href="#services">Diensten</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Volg ons</h4>
+      <ul>
+        <li><a href="https://www.instagram.com/extensions_barbershop" target="_blank">Instagram</a></li>
+        <li><a href="https://www.tiktok.com/@extensions_barbershop" target="_blank">TikTok</a></li>
+        <li><a href="https://www.facebook.com/vickyronny" target="_blank">Facebook</a></li>
+        <li><a href="https://wa.me/31687030400" target="_blank">WhatsApp</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Ghana House — Extensions & Barber Shop, Enschede</p>
+    <div class="flag-colors">
+      <div class="flag-dot" style="background:var(--red)"></div>
+      <div class="flag-dot" style="background:var(--gold-light)"></div>
+      <div class="flag-dot" style="background:var(--green)"></div>
+    </div>
+  </div>
+</footer>
+
+<!-- LOGIN MODAL -->
+<div class="modal-overlay" id="loginModal">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeLogin()">✕</button>
+    <div class="modal-title">Organisator</div>
+    <div class="modal-sub">Beveiligd toegangsportaal voor bestellingenbeheer</div>
+    <input type="password" class="modal-input" id="pwInput" placeholder="Voer wachtwoord in" onkeydown="if(event.key==='Enter')checkLogin()">
+    <button class="modal-btn" onclick="checkLogin()">Inloggen →</button>
+    <div class="modal-error" id="loginError">Ongeldig wachtwoord. Probeer opnieuw.</div>
+  </div>
+</div>
+
+<!-- ADMIN PANEL -->
+<div id="admin-panel">
+  <div class="admin-header">
+    <div><div class="admin-title">♦ Ghana House — Bestellingen</div><div class="admin-sub">Organisator beheersysteem</div></div>
+    <div class="admin-header-actions">
+      <button class="btn-export" onclick="exportCSV()">⬇ Exporteer CSV</button>
+      <button class="admin-logout" onclick="logout()">Uitloggen</button>
+    </div>
+  </div>
+  <div class="admin-body">
+    <div class="admin-stats">
+      <div class="admin-stat"><span class="num" id="stat-total-orders">0</span><span class="lbl">Bestellingen</span></div>
+      <div class="admin-stat"><span class="num" id="stat-web-orders">0</span><span class="lbl">🌐 Via website</span></div>
+      <div class="admin-stat"><span class="num" id="stat-paid">0</span><span class="lbl">Betaald</span></div>
+      <div class="admin-stat"><span class="num" id="stat-unpaid">0</span><span class="lbl">Niet betaald</span></div>
+      <div class="admin-stat"><span class="num" id="stat-revenue">€0</span><span class="lbl">Totaal omzet</span></div>
+    </div>
+    <div class="admin-form-card">
+      <h2>⊕ Nieuwe bestelling toevoegen</h2>
+      <div class="admin-form-grid">
+        <div class="admin-field"><label>Voornaam</label><input type="text" id="f-voornaam" placeholder="Maria"></div>
+        <div class="admin-field"><label>Achternaam</label><input type="text" id="f-achternaam" placeholder="Jansen"></div>
+        <div class="admin-field"><label>E-mailadres</label><input type="email" id="f-email" placeholder="maria@voorbeeld.nl"></div>
+        <div class="admin-field"><label>Telefoonnummer</label><input type="text" id="f-telefoon" placeholder="+31 6 ..."></div>
+        <div class="admin-field"><label>Adres</label><input type="text" id="f-adres" placeholder="Straatnaam 1"></div>
+        <div class="admin-field"><label>Postcode</label><input type="text" id="f-postcode" placeholder="1234 AB"></div>
+        <div class="admin-field"><label>Stad</label><input type="text" id="f-stad" placeholder="Enschede"></div>
+        <div class="admin-field"><label>Product / bestelling</label><input type="text" id="f-product" placeholder="Brazilian Wave 24 inch"></div>
+        <div class="admin-field"><label>Kleur / type</label><input type="text" id="f-kleur" placeholder="Natuurlijk zwart, 1B"></div>
+        <div class="admin-field"><label>Aantal</label><input type="number" id="f-aantal" placeholder="2" min="1"></div>
+        <div class="admin-field"><label>Prijs per stuk (€)</label><input type="number" id="f-prijs" placeholder="45.00" step="0.01" min="0"></div>
+        <div class="admin-field"><label>Betaald?</label><select id="f-betaald"><option value="nee">✘ Niet betaald</option><option value="ja">✓ Betaald</option></select></div>
+        <div class="admin-field" style="grid-column:span 2"><label>Notities</label><input type="text" id="f-notities" placeholder="Bijv. spoed, speciale wens..."></div>
+      </div>
+      <div class="admin-form-actions">
+        <button class="btn-admin-add" onclick="addOrder()">Bestelling opslaan</button>
+        <button class="btn-admin-clear" onclick="clearForm()">Wissen</button>
+      </div>
+    </div>
+    <div class="admin-table-card">
+      <div class="admin-table-header">
+        <h2>📋 Bestellingoverzicht</h2>
+        <div class="table-controls">
+          <input class="table-search" type="text" id="searchInput" placeholder="Zoek op naam of product..." oninput="renderTable()">
+          <button class="filter-btn active-all" id="fb-all" onclick="setFilter('all')">Alle</button>
+          <button class="filter-btn" id="fb-paid" onclick="setFilter('ja')">Betaald</button>
+          <button class="filter-btn" id="fb-unpaid" onclick="setFilter('nee')">Niet betaald</button>
+        </div>
+      </div>
+      <div class="period-filter-row">
+        <label>📅 Periode:</label>
+        <button class="period-btn active" id="pb-all" onclick="setPeriod('all')">Alles</button>
+        <button class="period-btn" id="pb-today" onclick="setPeriod('today')">Vandaag</button>
+        <button class="period-btn" id="pb-week" onclick="setPeriod('week')">Deze week</button>
+        <button class="period-btn" id="pb-month" onclick="setPeriod('month')">Deze maand</button>
+        <button class="period-btn" id="pb-year" onclick="setPeriod('year')">Dit jaar</button>
+        <button class="period-btn" id="pb-custom" onclick="setPeriod('custom')">Aangepast</button>
+        <div class="period-nav" id="periodNav" style="display:none">
+          <button class="period-nav-btn" onclick="navigatePeriod(-1)">◀</button>
+          <span class="period-label" id="periodLabel">—</span>
+          <button class="period-nav-btn" onclick="navigatePeriod(1)">▶</button>
+        </div>
+      </div>
+      <div class="table-wrap">
+        <table><thead><tr><th>#</th><th>Naam</th><th>Contact</th><th>Adres</th><th>Product</th><th>Kleur</th><th>Aant.</th><th>Per stuk</th><th>Totaal</th><th>Betaald</th><th>Notities</th><th>Datum</th><th></th></tr></thead><tbody id="orders-tbody"></tbody></table>
+      </div>
+      <div class="table-footer">
+        <div class="total-display"><span class="total-label">Totaal (gefilterd)</span><span class="total-amount" id="total-amount">€ 0,00</span></div>
+        <span style="color:rgba(255,255,255,0.35);font-size:0.8rem" id="result-count">0 bestellingen</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<style>
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.92);z-index:2000;align-items:center;justify-content:center;backdrop-filter:blur(10px)}
+.modal-overlay.active{display:flex}
+.modal-box{background:#fff;border-radius:6px;padding:3rem;width:100%;max-width:420px;position:relative;animation:modalIn 0.3s ease}
+@keyframes modalIn{from{opacity:0;transform:scale(0.96) translateY(20px)}to{opacity:1;transform:scale(1) translateY(0)}}
+.modal-close{position:absolute;top:1rem;right:1rem;background:none;border:none;color:#999;font-size:1.5rem;cursor:pointer;padding:0.25rem;transition:color 0.2s}
+.modal-close:hover{color:#111}
+.modal-title{font-family:'Playfair Display',serif;font-size:1.8rem;color:#111;margin-bottom:0.5rem;font-weight:700}
+.modal-sub{color:#888;font-size:0.85rem;margin-bottom:2rem}
+.modal-input{width:100%;background:#f5f5f5;border:1.5px solid #e0e0e0;color:#111;padding:1rem;font-family:'DM Sans',sans-serif;font-size:1rem;outline:none;transition:border-color 0.2s;margin-bottom:1rem;border-radius:4px}
+.modal-input:focus{border-color:#b8922e}
+.modal-btn{width:100%;background:#111;color:#fff;border:none;padding:1rem;font-family:'DM Sans',sans-serif;font-weight:700;font-size:1rem;cursor:pointer;transition:all 0.2s;border-radius:4px;letter-spacing:0.05em}
+.modal-btn:hover{background:#333}
+.modal-error{color:#c0392b;font-size:0.85rem;margin-top:0.75rem;display:none}
+#admin-panel{display:none;position:fixed;inset:0;background:#0f0f0f;z-index:3000;overflow-y:auto;font-family:'DM Sans',sans-serif}
+.admin-header{background:#1a1a1a;border-bottom:1px solid rgba(255,255,255,0.08);padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:10}
+.admin-title{font-family:'Playfair Display',serif;font-size:1.3rem;color:#d4a843}
+.admin-sub{font-size:0.78rem;color:rgba(255,255,255,0.4);margin-top:0.1rem}
+.admin-header-actions{display:flex;gap:0.75rem;align-items:center}
+.admin-logout{background:rgba(192,57,43,0.15);border:1px solid rgba(192,57,43,0.4);color:#ff7675;padding:0.5rem 1.2rem;border-radius:4px;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:0.85rem;transition:all 0.2s}
+.admin-logout:hover{background:rgba(192,57,43,0.3)}
+.admin-body{padding:2rem;max-width:1400px;margin:0 auto}
+.admin-stats{display:grid;grid-template-columns:repeat(5,1fr);gap:1rem;margin-bottom:2rem}
+.admin-stat{background:#1a1a1a;border:1px solid rgba(255,255,255,0.08);padding:1.5rem;text-align:center;border-radius:4px}
+.admin-stat .num{font-family:'Playfair Display',serif;font-size:2rem;font-weight:900;color:#d4a843;display:block}
+.admin-stat .lbl{font-size:0.75rem;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:1px;margin-top:0.25rem}
+.admin-form-card{background:#1a1a1a;border:1px solid rgba(255,255,255,0.08);padding:2rem;margin-bottom:2rem;border-radius:4px}
+.admin-form-card h2{font-family:'Playfair Display',serif;font-size:1.3rem;color:#d4a843;margin-bottom:1.5rem}
+.admin-form-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1rem}
+.admin-field label{display:block;font-size:0.75rem;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:1px;margin-bottom:0.4rem}
+.admin-field input,.admin-field textarea,.admin-field select{width:100%;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);color:#fff;padding:0.7rem 0.9rem;font-family:'DM Sans',sans-serif;font-size:0.9rem;outline:none;transition:border-color 0.2s;border-radius:4px}
+.admin-field input:focus,.admin-field textarea:focus,.admin-field select:focus{border-color:#d4a843}
+.admin-field select option{background:#222}
+.admin-form-actions{margin-top:1.5rem;display:flex;gap:1rem;align-items:center}
+.btn-admin-add{background:#d4a843;color:#111;border:none;padding:0.85rem 2rem;font-family:'DM Sans',sans-serif;font-weight:700;font-size:0.9rem;cursor:pointer;transition:all 0.2s;border-radius:4px}
+.btn-admin-add:hover{background:#b8922e}
+.btn-admin-clear{background:transparent;color:rgba(255,255,255,0.5);border:1px solid rgba(255,255,255,0.15);padding:0.85rem 1.5rem;font-family:'DM Sans',sans-serif;font-size:0.9rem;cursor:pointer;transition:all 0.2s;border-radius:4px}
+.admin-table-card{background:#1a1a1a;border:1px solid rgba(255,255,255,0.08);padding:2rem;border-radius:4px}
+.admin-table-header{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;margin-bottom:1.5rem}
+.admin-table-header h2{font-family:'Playfair Display',serif;font-size:1.3rem;color:#d4a843}
+.table-controls{display:flex;gap:0.75rem;flex-wrap:wrap;align-items:center}
+.table-search{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);color:#fff;padding:0.6rem 1rem;font-family:'DM Sans',sans-serif;font-size:0.85rem;outline:none;width:220px;transition:border-color 0.2s;border-radius:4px}
+.table-search:focus{border-color:#d4a843}
+.table-search::placeholder{color:rgba(255,255,255,0.25)}
+.filter-btn{padding:0.6rem 1.2rem;border:1px solid rgba(255,255,255,0.1);background:transparent;color:rgba(255,255,255,0.6);cursor:pointer;font-family:'DM Sans',sans-serif;font-size:0.82rem;transition:all 0.2s;border-radius:4px}
+.filter-btn.active-all{border-color:#d4a843;color:#d4a843;background:rgba(212,168,67,0.08)}
+.filter-btn.active-paid{border-color:#1a7a3c;color:#4dffaa;background:rgba(26,122,60,0.1)}
+.filter-btn.active-unpaid{border-color:#c0392b;color:#ff7675;background:rgba(192,57,43,0.1)}
+.btn-export{background:#1a7a3c;color:#fff;border:none;padding:0.6rem 1.2rem;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:0.82rem;transition:all 0.2s;border-radius:4px}
+.btn-export:hover{background:#218a47}
+.period-filter-row{display:flex;gap:0.5rem;flex-wrap:wrap;align-items:center;margin-bottom:1rem}
+.period-filter-row label{font-size:0.72rem;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:0.8px;margin-right:0.25rem}
+.period-btn{padding:0.5rem 1rem;border:1px solid rgba(255,255,255,0.1);background:transparent;color:rgba(255,255,255,0.5);cursor:pointer;font-family:'DM Sans',sans-serif;font-size:0.78rem;transition:all 0.2s;border-radius:4px}
+.period-btn.active{border-color:#d4a843;color:#d4a843;background:rgba(212,168,67,0.08)}
+.period-btn:hover{border-color:rgba(255,255,255,0.25);color:rgba(255,255,255,0.7)}
+.period-nav{display:flex;align-items:center;gap:0.5rem;margin-left:auto}
+.period-nav-btn{width:28px;height:28px;border:1px solid rgba(255,255,255,0.1);background:transparent;color:rgba(255,255,255,0.5);cursor:pointer;border-radius:4px;font-size:0.9rem;display:flex;align-items:center;justify-content:center;transition:all 0.2s}
+.period-nav-btn:hover{border-color:#d4a843;color:#d4a843}
+.period-label{font-size:0.82rem;color:rgba(255,255,255,0.7);min-width:140px;text-align:center;font-weight:500}
+.table-wrap{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:0.87rem}
+th{background:rgba(212,168,67,0.06);color:rgba(255,255,255,0.6);font-weight:500;text-transform:uppercase;letter-spacing:1px;font-size:0.72rem;padding:0.9rem 1rem;text-align:left;border-bottom:1px solid rgba(255,255,255,0.08);white-space:nowrap}
+td{padding:1rem;border-bottom:1px solid rgba(255,255,255,0.04);color:rgba(255,255,255,0.8);vertical-align:middle}
+tr:hover td{background:rgba(255,255,255,0.02)}
+.paid-badge{display:inline-flex;align-items:center;gap:0.35rem;padding:0.3rem 0.75rem;border-radius:100px;font-size:0.75rem;font-weight:600;letter-spacing:0.5px;cursor:pointer;transition:all 0.2s;border:none;font-family:'DM Sans',sans-serif}
+.paid-badge.yes{background:rgba(26,122,60,0.2);border:1px solid rgba(26,122,60,0.4);color:#4dffaa}
+.paid-badge.no{background:rgba(192,57,43,0.15);border:1px solid rgba(192,57,43,0.4);color:#ff7675}
+.btn-delete{background:rgba(192,57,43,0.1);border:1px solid rgba(192,57,43,0.25);color:#ff7675;padding:0.35rem 0.75rem;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:0.78rem;transition:all 0.2s;border-radius:4px}
+.btn-delete:hover{background:rgba(192,57,43,0.3)}
+.table-footer{display:flex;justify-content:space-between;align-items:center;margin-top:1.5rem;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,0.08);flex-wrap:wrap;gap:1rem}
+.total-display{font-family:'Playfair Display',serif;font-size:1.4rem}
+.total-label{color:rgba(255,255,255,0.5);font-size:0.8rem;letter-spacing:1px;text-transform:uppercase;display:block;margin-bottom:0.2rem;font-family:'DM Sans',sans-serif}
+.total-amount{color:#d4a843}
+.empty-state{text-align:center;padding:4rem 2rem;color:rgba(255,255,255,0.25)}
+.toast{position:fixed;bottom:2rem;right:2rem;background:#1a7a3c;color:#fff;padding:1rem 1.5rem;font-size:0.9rem;z-index:9999;opacity:0;transform:translateY(20px);transition:all 0.3s;pointer-events:none;border-radius:4px}
+.toast.show{opacity:1;transform:translateY(0)}
+.toast.error{background:#c0392b}
+.admin-btn-fixed{position:fixed;bottom:2rem;left:2rem;background:#111;color:#fff;border:none;padding:0.7rem 1.4rem;border-radius:100px;font-family:'DM Sans',sans-serif;font-size:0.82rem;font-weight:600;cursor:pointer;letter-spacing:0.05em;z-index:500;box-shadow:0 4px 20px rgba(0,0,0,0.3);transition:all 0.2s;display:flex;align-items:center;gap:8px}
+.admin-btn-fixed:hover{background:#333;transform:translateY(-2px)}
+</style>
+
+<button class="admin-btn-fixed" onclick="openLogin()">🔐 Organisator</button>
+
+<script>
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 70);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.08 });
+  reveals.forEach(el => observer.observe(el));
+
+  // Admin system
+  const PASSWORD='1Ghanahouse';
+  let orders=JSON.parse(localStorage.getItem('gh_orders')||'[]');
+  let filterState='all';
+  let periodState='all';
+  let periodOffset=0;
+  function save(){localStorage.setItem('gh_orders',JSON.stringify(orders))}
+
+  // Date parsing helper: converts "dd-mm-yyyy" or "d-m-yyyy" to Date object
+  function parseNLDate(str){
+    if(!str)return null;
+    // Handle both dd-mm-yyyy and dd/mm/yyyy formats
+    const parts=str.split(/[-\/\.]/);
+    if(parts.length===3){
+      const d=parseInt(parts[0]),m=parseInt(parts[1])-1,y=parseInt(parts[2]);
+      if(!isNaN(d)&&!isNaN(m)&&!isNaN(y))return new Date(y,m,d);
+    }
+    return null;
+  }
+
+  function getDateISO(){
+    const now=new Date();
+    return now.getFullYear()+'-'+String(now.getMonth()+1).padStart(2,'0')+'-'+String(now.getDate()).padStart(2,'0');
+  }
+
+  // Period range calculator
+  function getPeriodRange(period,offset){
+    const now=new Date();
+    let start,end,label;
+    if(period==='today'){
+      const d=new Date(now);d.setDate(d.getDate()+offset);
+      start=new Date(d.getFullYear(),d.getMonth(),d.getDate());
+      end=new Date(d.getFullYear(),d.getMonth(),d.getDate(),23,59,59);
+      label=d.toLocaleDateString('nl-NL',{weekday:'long',day:'numeric',month:'long',year:'numeric'});
+    }else if(period==='week'){
+      const d=new Date(now);d.setDate(d.getDate()+(offset*7));
+      const day=d.getDay();const diff=d.getDate()-day+(day===0?-6:1);
+      start=new Date(d.getFullYear(),d.getMonth(),diff);
+      end=new Date(start);end.setDate(start.getDate()+6);end.setHours(23,59,59);
+      label='Week '+getWeekNumber(start)+' · '+start.toLocaleDateString('nl-NL',{day:'numeric',month:'short'})+' – '+end.toLocaleDateString('nl-NL',{day:'numeric',month:'short',year:'numeric'});
+    }else if(period==='month'){
+      const d=new Date(now.getFullYear(),now.getMonth()+offset,1);
+      start=new Date(d.getFullYear(),d.getMonth(),1);
+      end=new Date(d.getFullYear(),d.getMonth()+1,0,23,59,59);
+      label=d.toLocaleDateString('nl-NL',{month:'long',year:'numeric'});
+    }else if(period==='year'){
+      const y=now.getFullYear()+offset;
+      start=new Date(y,0,1);
+      end=new Date(y,11,31,23,59,59);
+      label=String(y);
+    }
+    return {start,end,label};
+  }
+
+  function getWeekNumber(d){
+    const date=new Date(Date.UTC(d.getFullYear(),d.getMonth(),d.getDate()));
+    date.setUTCDate(date.getUTCDate()+4-(date.getUTCDay()||7));
+    const yearStart=new Date(Date.UTC(date.getUTCFullYear(),0,1));
+    return Math.ceil((((date-yearStart)/86400000)+1)/7);
+  }
+
+  // PUBLIC ORDER FORM
+  function fillOrderFromProduct(name,brand,price){
+    document.getElementById('pub-product').value=brand+' — '+name;
+    document.getElementById('pub-aantal').value=1;
+    document.getElementById('orderConfirmation').classList.remove('show');
+    document.querySelector('.order-form-grid').style.display='';
+    document.querySelector('.order-submit-row').style.display='';
+    document.getElementById('bestellen').scrollIntoView({behavior:'smooth'});
+    showToast('Product ingevuld! Vul je gegevens in om te bestellen.',false);
+  }
+
+  function submitPublicOrder(){
+    const voornaam=document.getElementById('pub-voornaam').value.trim();
+    const achternaam=document.getElementById('pub-achternaam').value.trim();
+    const email=document.getElementById('pub-email').value.trim();
+    const telefoon=document.getElementById('pub-telefoon').value.trim();
+    const product=document.getElementById('pub-product').value.trim();
+    if(!voornaam||!achternaam||!product){showToast('Vul je naam en product in.',true);return}
+    if(!email&&!telefoon){showToast('Vul je e-mail of telefoonnummer in zodat we contact kunnen opnemen.',true);return}
+    const aantal=parseInt(document.getElementById('pub-aantal').value)||1;
+    const levering=document.getElementById('pub-levering').value;
+    const now=new Date();
+    const order={
+      id:Date.now(),
+      voornaam:voornaam,
+      achternaam:achternaam,
+      email:email,
+      telefoon:telefoon,
+      adres:document.getElementById('pub-adres').value.trim(),
+      postcode:document.getElementById('pub-postcode').value.trim(),
+      stad:document.getElementById('pub-stad').value.trim(),
+      product:product,
+      kleur:document.getElementById('pub-kleur').value.trim(),
+      aantal:aantal,
+      prijs:0,
+      totaal:0,
+      betaald:'nee',
+      notities:(levering?'['+levering+'] ':'')+document.getElementById('pub-notities').value.trim(),
+      datum:now.toLocaleDateString('nl-NL'),
+      datumISO:now.getFullYear()+'-'+String(now.getMonth()+1).padStart(2,'0')+'-'+String(now.getDate()).padStart(2,'0'),
+      bron:'website'
+    };
+    orders.unshift(order);
+    save();
+    document.querySelector('.order-form-grid').style.display='none';
+    document.querySelector('.order-submit-row').style.display='none';
+    document.getElementById('orderConfirmation').classList.add('show');
+    showToast('Bestelling succesvol geplaatst!',false);
+  }
+
+  function resetPublicOrder(){
+    ['pub-voornaam','pub-achternaam','pub-email','pub-telefoon','pub-adres','pub-postcode','pub-stad','pub-product','pub-kleur','pub-notities'].forEach(id=>document.getElementById(id).value='');
+    document.getElementById('pub-aantal').value='1';
+    document.getElementById('pub-levering').value='Afhalen in winkel';
+    document.querySelector('.order-form-grid').style.display='';
+    document.querySelector('.order-submit-row').style.display='';
+    document.getElementById('orderConfirmation').classList.remove('show');
+  }
+
+  function openLogin(){document.getElementById('loginModal').classList.add('active');setTimeout(()=>document.getElementById('pwInput').focus(),100)}
+  function closeLogin(){document.getElementById('loginModal').classList.remove('active');document.getElementById('pwInput').value='';document.getElementById('loginError').style.display='none'}
+  function checkLogin(){const pw=document.getElementById('pwInput').value;if(pw===PASSWORD){closeLogin();openAdmin()}else{document.getElementById('loginError').style.display='block';document.getElementById('pwInput').value='';document.getElementById('pwInput').focus()}}
+  function openAdmin(){document.getElementById('admin-panel').style.display='block';document.body.style.overflow='hidden';renderTable();updateStats()}
+  function logout(){document.getElementById('admin-panel').style.display='none';document.body.style.overflow=''}
+
+  function addOrder(){
+    const voornaam=document.getElementById('f-voornaam').value.trim();
+    const achternaam=document.getElementById('f-achternaam').value.trim();
+    const product=document.getElementById('f-product').value.trim();
+    if(!voornaam||!achternaam||!product){showToast('Vul minimaal naam en product in.',true);return}
+    const aantal=parseInt(document.getElementById('f-aantal').value)||1;
+    const prijs=parseFloat(document.getElementById('f-prijs').value)||0;
+    const now=new Date();
+    const order={id:Date.now(),voornaam,achternaam,email:document.getElementById('f-email').value.trim(),telefoon:document.getElementById('f-telefoon').value.trim(),adres:document.getElementById('f-adres').value.trim(),postcode:document.getElementById('f-postcode').value.trim(),stad:document.getElementById('f-stad').value.trim(),product,kleur:document.getElementById('f-kleur').value.trim(),aantal,prijs,totaal:aantal*prijs,betaald:document.getElementById('f-betaald').value,notities:document.getElementById('f-notities').value.trim(),datum:now.toLocaleDateString('nl-NL'),datumISO:now.getFullYear()+'-'+String(now.getMonth()+1).padStart(2,'0')+'-'+String(now.getDate()).padStart(2,'0'),bron:'handmatig'};
+    orders.unshift(order);save();renderTable();updateStats();clearForm();showToast('Bestelling opgeslagen!',false);
+  }
+
+  function deleteOrder(id){if(!confirm('Weet u zeker dat u deze bestelling wilt verwijderen?'))return;orders=orders.filter(o=>o.id!==id);save();renderTable();updateStats();showToast('Bestelling verwijderd.',true)}
+  function togglePaid(id){const o=orders.find(x=>x.id===id);if(!o)return;o.betaald=o.betaald==='ja'?'nee':'ja';save();renderTable();updateStats()}
+  function clearForm(){['f-voornaam','f-achternaam','f-email','f-telefoon','f-adres','f-postcode','f-stad','f-product','f-kleur','f-notities'].forEach(id=>document.getElementById(id).value='');document.getElementById('f-aantal').value='';document.getElementById('f-prijs').value='';document.getElementById('f-betaald').value='nee'}
+
+  function setFilter(state){filterState=state;document.getElementById('fb-all').className='filter-btn'+(state==='all'?' active-all':'');document.getElementById('fb-paid').className='filter-btn'+(state==='ja'?' active-paid':'');document.getElementById('fb-unpaid').className='filter-btn'+(state==='nee'?' active-unpaid':'');renderTable()}
+
+  function setPeriod(period){
+    periodState=period;periodOffset=0;
+    ['all','today','week','month','year','custom'].forEach(p=>{
+      const el=document.getElementById('pb-'+p);
+      if(el)el.className='period-btn'+(p===period?' active':'');
+    });
+    document.getElementById('periodNav').style.display=(period!=='all'&&period!=='custom')?'flex':'none';
+    if(period!=='all'&&period!=='custom')updatePeriodLabel();
+    renderTable();
+  }
+
+  function navigatePeriod(dir){
+    periodOffset+=dir;
+    updatePeriodLabel();
+    renderTable();
+  }
+
+  function updatePeriodLabel(){
+    if(periodState==='all'||periodState==='custom')return;
+    const range=getPeriodRange(periodState,periodOffset);
+    document.getElementById('periodLabel').textContent=range.label;
+  }
+
+  function getOrderDate(o){
+    // Try ISO date first, then parse NL format
+    if(o.datumISO){
+      const parts=o.datumISO.split('-');
+      return new Date(parseInt(parts[0]),parseInt(parts[1])-1,parseInt(parts[2]));
+    }
+    return parseNLDate(o.datum);
+  }
+
+  function getFiltered(){
+    const q=document.getElementById('searchInput').value.toLowerCase();
+    let filtered=orders.filter(o=>{
+      const mF=filterState==='all'||o.betaald===filterState;
+      const mS=!q||(o.voornaam+' '+o.achternaam).toLowerCase().includes(q)||o.product.toLowerCase().includes(q)||(o.stad||'').toLowerCase().includes(q);
+      return mF&&mS;
+    });
+    // Apply period filter
+    if(periodState!=='all'&&periodState!=='custom'){
+      const range=getPeriodRange(periodState,periodOffset);
+      filtered=filtered.filter(o=>{
+        const d=getOrderDate(o);
+        if(!d)return false;
+        return d>=range.start&&d<=range.end;
+      });
+    }
+    return filtered;
+  }
+
+  function renderTable(){
+    const filtered=getFiltered();
+    const tbody=document.getElementById('orders-tbody');
+    if(filtered.length===0){
+      tbody.innerHTML='<tr><td colspan="14"><div class="empty-state">Geen bestellingen gevonden'+(periodState!=='all'?' in deze periode':'')+'</div></td></tr>';
+      document.getElementById('total-amount').textContent='€ 0,00';
+      document.getElementById('result-count').textContent='0 bestellingen';
+      return;
+    }
+    let totalSum=0;
+    tbody.innerHTML=filtered.map((o,i)=>{
+      totalSum+=o.totaal||0;
+      const bronBadge=o.bron==='website'?'<span class="order-source-badge web">🌐 Website</span>':'<span class="order-source-badge manual">✎ Handmatig</span>';
+      return '<tr><td style="color:rgba(255,255,255,0.3);font-size:0.78rem">'+(i+1)+'</td><td><strong>'+esc(o.voornaam)+' '+esc(o.achternaam)+'</strong><br>'+bronBadge+'</td><td style="font-size:0.8rem;color:rgba(255,255,255,0.55)">'+esc(o.email)+'<br>'+esc(o.telefoon)+'</td><td style="font-size:0.8rem;color:rgba(255,255,255,0.55)">'+esc(o.adres)+'<br>'+esc(o.postcode)+' '+esc(o.stad)+'</td><td><strong>'+esc(o.product)+'</strong></td><td style="font-size:0.8rem">'+esc(o.kleur)+'</td><td style="text-align:center">'+o.aantal+'</td><td>€ '+(o.prijs||0).toFixed(2)+'</td><td><strong style="color:#d4a843">€ '+(o.totaal||0).toFixed(2)+'</strong></td><td><button class="paid-badge '+(o.betaald==='ja'?'yes':'no')+'" onclick="togglePaid('+o.id+')">'+(o.betaald==='ja'?'✓ Betaald':'✕ Niet betaald')+'</button></td><td style="font-size:0.8rem;color:rgba(255,255,255,0.5);max-width:150px">'+esc(o.notities)+'</td><td style="font-size:0.78rem;color:rgba(255,255,255,0.35)">'+o.datum+'</td><td><button class="btn-delete" onclick="deleteOrder('+o.id+')">✕</button></td></tr>';
+    }).join('');
+    document.getElementById('total-amount').textContent='€ '+totalSum.toFixed(2).replace('.',',');
+    document.getElementById('result-count').textContent=filtered.length+' bestelling'+(filtered.length!==1?'en':'');
+  }
+
+  function updateStats(){const paid=orders.filter(o=>o.betaald==='ja');const webOrders=orders.filter(o=>o.bron==='website');const revenue=orders.reduce((s,o)=>s+(o.totaal||0),0);document.getElementById('stat-total-orders').textContent=orders.length;document.getElementById('stat-paid').textContent=paid.length;document.getElementById('stat-unpaid').textContent=orders.filter(o=>o.betaald==='nee').length;document.getElementById('stat-revenue').textContent='€'+revenue.toFixed(0);document.getElementById('stat-web-orders').textContent=webOrders.length}
+  function exportCSV(){if(orders.length===0){showToast('Geen bestellingen.',true);return}const headers=['Nr','Voornaam','Achternaam','Email','Telefoon','Adres','Postcode','Stad','Product','Kleur','Aantal','Prijs','Totaal','Betaald','Notities','Datum','Bron'];const rows=orders.map((o,i)=>[i+1,o.voornaam,o.achternaam,o.email,o.telefoon,o.adres,o.postcode,o.stad,o.product,o.kleur,o.aantal,(o.prijs||0).toFixed(2),(o.totaal||0).toFixed(2),o.betaald==='ja'?'Ja':'Nee',o.notities,o.datum,o.bron==='website'?'Website':'Handmatig'].map(v=>'"'+String(v||'').replace(/"/g,'""')+'"').join(','));const csv='\uFEFF'+[headers.join(','),...rows].join('\r\n');const blob=new Blob([csv],{type:'text/csv;charset=utf-8;'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download='ghana-house-bestellingen-'+new Date().toISOString().slice(0,10)+'.csv';a.click();URL.revokeObjectURL(url);showToast('CSV geëxporteerd!',false)}
+  function esc(str){if(!str)return'';return String(str).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
+  function showToast(msg,isError){const t=document.getElementById('toast');t.textContent=msg;t.className='toast'+(isError?' error':'')+' show';setTimeout(()=>t.className='toast',3000)}
+  document.getElementById('loginModal').addEventListener('click',function(e){if(e.target===this)closeLogin()});
+  document.getElementById('admin-panel').addEventListener('scroll',function(){const ah=this.querySelector('.admin-header');ah.style.boxShadow=this.scrollTop>5?'0 4px 20px rgba(0,0,0,0.5)':''});
+</script>
+</body>
+</html>
